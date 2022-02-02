@@ -85,3 +85,11 @@ equalityTest(3,'3');
 strictEqualityTest(3,3);
 strictEqualityTest(3,'3');
 
+var myArray = [];
+
+for(var i = 1;i<6;i++)
+{
+    myArray.push(i);
+}
+
+console.log(myArray);
