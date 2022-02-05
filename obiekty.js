@@ -1,17 +1,17 @@
 var myDog = {
-    "name" : "Quincy",
-    "legs" : 3,
-    "tails" : 2,
-    "friends" : []
+    "name": "Quincy",
+    "legs": 3,
+    "tails": 2,
+    "friends": []
 };
 
 var legsValue = myDog.legs;
 var tailsValue = myDog.tails;
 
 var testObject = {
-    "an entree" : "hamburger",
-    "my side" : "veggies",
-    "the drink" : "water"
+    "an entree": "hamburger",
+    "my side": "veggies",
+    "the drink": "water"
 };
 var entreeValue = testObject["an entree"];
 var drinkValue = testObject["the drink"];
@@ -20,7 +20,7 @@ console.log(entreeValue + " " + drinkValue);
 testObject = {
     12: "Namath",
     16: "Montana",
-    19 : "Unitas"
+    19: "Unitas"
 };
 var playerNumber = 16;
 var player = testObject[playerNumber];
@@ -40,16 +40,16 @@ console.log(myDog.altBark);
 delete myDog.bark;
 
 //lookup object
-function phoneticLookup(value){
+function phoneticLookup(value) {
 
     var result = "";
     var lookup = {
-    "alpha" : "Adams",
-    "bravo" : "Boston",
-    "charlie" : "Chicago",
-    "delta" : "Denver",
-    "echo" : "Easy",
-    "foxtrot" : "frank"
+        "alpha": "Adams",
+        "bravo": "Boston",
+        "charlie": "Chicago",
+        "delta": "Denver",
+        "echo": "Easy",
+        "foxtrot": "frank"
     };
     result = lookup[value];
     return result;
@@ -58,53 +58,49 @@ console.log(phoneticLookup("foxtrot"));
 
 // testing obj for prop
 var myObj = {
-    gift : "pony",
-    pet : 'kitten',
-    bed : "sleight"
+    gift: "pony",
+    pet: 'kitten',
+    bed: "sleight"
 };
-function checkObj(checkProp)
-{
-    if(myObj.hasOwnProperty(checkProp))
-    {
+
+function checkObj(checkProp) {
+    if (myObj.hasOwnProperty(checkProp)) {
         return myObj[checkProp];
-    }
-    else
-    {
+    } else {
         return "Not Found";
     }
 }
 console.log(checkObj("gift"));
 
-var myMusic = [
-    {
-        "artist" : "Billy Joel",
-        "title" : "Piano Man",
-        "release_year" : 1973,
-        "formats" : [
+var myMusic = [{
+        "artist": "Billy Joel",
+        "title": "Piano Man",
+        "release_year": 1973,
+        "formats": [
             "CD",
             "8T",
-            "LP"            
+            "LP"
         ],
-        "gold" : true
+        "gold": true
     },
     {
-        "artist" : "Beau Carnes",
-        "title" : "Cereal Man",
-        "release_year" : 2003,
-        "formats" : [
+        "artist": "Beau Carnes",
+        "title": "Cereal Man",
+        "release_year": 2003,
+        "formats": [
             "Youtube video"
         ]
     }
 ];
 
 var myStorage = { // nested object
-    "car" : {
-        "inside" : {
-            "glove box" : "maps",
-            "passenger seat" : "crumbs"
+    "car": {
+        "inside": {
+            "glove box": "maps",
+            "passenger seat": "crumbs"
         },
-        "outside" : {
-            "trunk" : "jack"
+        "outside": {
+            "trunk": "jack"
         }
     }
 };
@@ -114,7 +110,7 @@ console.log(gloveBoxContents);
 
 var myPlants = [ // nested array
     {
-        type : "flowers",
+        type: "flowers",
         list: [
             "rose",
             "tulip",
@@ -122,7 +118,7 @@ var myPlants = [ // nested array
         ]
     },
     {
-        type : "trees",
+        type: "trees",
         list: [
             "fir",
             "pine",
