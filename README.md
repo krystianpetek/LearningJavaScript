@@ -1,2 +1,0 @@
-# NaukaJavaScript
- Nauka JS
