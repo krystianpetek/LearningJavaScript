@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const ScoreDisplay = document.querySelector('#score');
     const StartBtn = document.querySelector("#start-button");
     const width = 10;
+    let nextRandom = 0;
 
     // the tetrominoes
     const lTetromino = [
@@ -50,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let current = theTetrominoes[random][currentRotation];
 
     let color;
+    let nextColor;
     // draw the first rotation in the first tetromino
     function draw() {
         switch (random) {
@@ -83,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // move down tetromino every seconds
-    timerId = setInterval(moveDown, 1000);
+    timerId = setInterval(moveDown, 300);
 
     // assign functions to keyCode
     function control(e) {
@@ -109,9 +111,30 @@ document.addEventListener('DOMContentLoaded', () => {
     function freeze() {
         if (current.some(item => squares[currentPosition + item + width].classList.contains('taken'))) {
             current.forEach(item => squares[currentPosition + item].classList.add('taken'));
-            random = Math.floor(Math.random() * theTetrominoes.length);
+            random = nextRandom;
+            nextRandom = Math.floor(Math.random() * theTetrominoes.length);
+            switch (nextRandom) {
+                case 0:
+                    nextColor = lTetrominoColor;
+                    break;
+                case 1:
+                    nextColor = zTetrominoColor;
+                    break;
+                case 2:
+                    nextColor = tTetrominoColor;
+                    break;
+                case 3:
+                    nextColor = oTetrominoColor;
+                    break;
+                case 4:
+                    nextColor = iTetrominoColor;
+                    break;
+                default:
+                    '';
+            }
             current = theTetrominoes[random][currentRotation];
             currentPosition = 4;
+            displayShape();
         }
     };
 
@@ -151,6 +174,27 @@ document.addEventListener('DOMContentLoaded', () => {
         //     currentPosition += 1;
 
         draw();
+    }
+
+
+
+    const displaySquares = document.querySelectorAll('.mini-grid div');
+    const displayWidth = 4;
+    let displayIndex = 0;
+    const upNextTetrominoes = [
+        [1,displayWidth+1,displayWidth*2+1,2], // l
+        [0,displayWidth,displayWidth+1,displayWidth*2+1], // z
+        [1,displayWidth, displayWidth+1, displayWidth+2], // t
+        [0,1,displayWidth,displayWidth+1], // o
+        [1,displayWidth+1, displayWidth*2+1, displayWidth*3+1] // i
+    ];
+    function displayShape(){
+        displaySquares.forEach(square => {
+            square.classList.remove('tetromino','red','green','blue','black','white')
+        });
+        upNextTetrominoes[nextRandom].forEach(index => {
+            displaySquares[displayIndex + index].classList.add('tetromiono',nextColor);
+        });
     }
 
 });
