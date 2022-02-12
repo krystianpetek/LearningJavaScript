@@ -10,8 +10,28 @@
     height: 20px;
     width: 20px;
 }
+.tetromino{
+    
+    outline: 1px black solid;
+}
 
-.tetromino
+.red
 {
-    background-color: blue;
+    background-color : red;
+}
+.green
+{
+    background-color : green;
+}
+.blue
+{
+    background-color : blue;
+}
+.black
+{
+    background-color : black;
+}
+.white
+{
+    background-color : white;
 }
