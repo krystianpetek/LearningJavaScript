@@ -1,36 +1,32 @@
-class App extends React.Component {
-    state = {
-        value: ""
+class Message extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            messageIsActive: false
+        };
+        this.handleMessageButton = this.handleMessageButton.bind(this);
     };
 
-    handleChange = (e) => {
-        let result = ("Zawartość w evencie: " + e.target.value + "\n"
-            + "Zawartość value przed setState: " + this.state.value);
-        this.setState({
-            value: e.target.value
-        });
-        result += ("\nZawartość value po setState: " + this.state.value);
-        console.log(result);
-    };
-
-    handleClick = () => {
-        this.setState({
-            value: ""
-        });
+    handleMessageButton = () => {
+        this.setState((prevState) => ({
+            messageIsActive: !prevState.messageIsActive
+        }));
+        // debugger
     };
 
     render() {
-        // render jest asynchroniczna, w chwili wywołania render zmienia sie stan
-        console.log("Zawartość value w trakcie metody render: " + this.state.value);
+        const text = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi, perferendis. Perspiciatis repellendus ipsam repellat ratione ab nobis earum, quisquam, recusandae accusantium numquam optio nostrum reiciendis doloribus soluta, itaque animi possimus! ";
+        console.log(this.state.messageIsActive);
         return (
             <React.Fragment>
-                <input value={this.state.value} placeholder="wpisz tekst..." onChange={this.handleChange} type="text" />
-                <button onClick={this.handleClick} >RESET</button>
-                <h1 className="title">{this.state.value.toUpperCase()}</h1>
+                <button onClick={this.handleMessageButton}>{this.state.messageIsActive ? "Hide" : "Show"}</button>
+                <p>{this.state.messageIsActive && text}</p>
+                {this.state.messageIsActive && <p>{text}</p>}
+                {this.state.messageIsActive ? <p>{text}</p> : null}
             </React.Fragment>
-        )
-    };
-};
+        );
+    }
+}
 
 const root = document.getElementById('root');
-ReactDOM.render(<App />, root);
+ReactDOM.render(<Message />, root);

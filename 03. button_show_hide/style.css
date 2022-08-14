@@ -11,8 +11,6 @@ body {
 
 input[type="text"],
 button {
-    padding: 10px 30px;
-    border: black 2px solid;
-    font-size: 30px;
-    outline: none;
+    padding: 10px 20px;
+    font-size: 20px;
 }
