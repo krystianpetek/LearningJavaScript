@@ -1,0 +1,11 @@
+body {
+    text-align: center;
+    overflow: hidden;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+input[type="text"],
+button {
+    padding: 10px 20px;
+    font-size: 20px;
+}
