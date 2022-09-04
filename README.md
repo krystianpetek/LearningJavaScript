@@ -1,1 +1,1 @@
-nauka js
+# Learning JavaScript
