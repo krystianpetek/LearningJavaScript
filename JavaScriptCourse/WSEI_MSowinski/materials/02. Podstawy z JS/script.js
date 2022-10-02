@@ -46,7 +46,33 @@ switch (weather) {
         break;
 }
 
+display('while');
 let i = 0;
 while (i != 5) {
     i = Math.floor(Math.random() * 10);
+    console.log(i);
 }
+
+display('for');
+for (let i = 0; i < 10; i++) {
+    if (i % 5 == 0)
+        console.log(i);
+}
+
+display('nested for');
+for (let k = 0; k < 3; k++) {
+    for (let l = 0; l < 4; l++) {
+        display(`k = ${k}, l = ${l}`);
+    }
+}
+
+display('arrays');
+let myNumbers = [1, 2, 3, 4, 5, 6, 7];
+let emptyArray = [];
+
+const users = ["Ala", "John", "Naomi", "Adam"];
+const prices = [23, 12, 9.40];
+display(users[0]);
+display(users[2]);
+display(users[4]);
+display(prices.length);
