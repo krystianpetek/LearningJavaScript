@@ -16,7 +16,7 @@ function sayLocalName() {
     console.log(`local ${name}`);
 }
 
-var name = 'Adam'; // zmiennna globalna name
+var name = 'Adam'; // global variable
 sayGlobalName();
 sayLocalName();
 console.log(name);
