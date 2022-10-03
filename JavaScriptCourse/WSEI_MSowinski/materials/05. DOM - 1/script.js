@@ -18,3 +18,26 @@ console.log(app.querySelector('#glink').dataset); // returns assotiation array (
 
 console.log(typeof (app.dataset));
 console.log(app.dataset);
+
+var myUser = document.querySelector('#user');
+console.log(myUser.dataset); // object with dataset items
+console.log(myUser.dataset.id); // 424
+console.log(myUser.dataset.loggedIn); // empty element
+myUser.dataset.id = 4444;
+console.log(myUser.dataset.id); // 4444
+
+myUser.dataset.something = "val"; // new value
+console.log(myUser.dataset.something); // data-something="val"
+
+// element attributes
+if (myUser.hasAttribute('id')) // has
+{
+    console.log(myUser.getAttribute('id')) // if has attribute, get it
+    myUser.removeAttribute('id');
+    console.log(myUser.hasAttribute('id')) // should return false
+    myUser.setAttribute('id', 'newId');
+}
+
+// get and set CSS style
+let ah1 = app.querySelector('#glink h1');
+ah1.style.backgroundColor = '#dbdbdb';
