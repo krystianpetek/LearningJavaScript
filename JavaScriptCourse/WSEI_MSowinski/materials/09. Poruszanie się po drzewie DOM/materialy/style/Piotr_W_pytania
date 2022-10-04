@@ -1,0 +1,3 @@
+W pliku style/style.css są webkity dla border-radius, ale tylko przy jednym elemencie. Celowo? Usuwamy?
+
+W pliku zadanie04.html nie ma "<link rel="stylesheet" href="style/style.css">", celowo?
