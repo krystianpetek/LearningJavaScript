@@ -9,12 +9,9 @@
 
 .hidden {
     visibility: hidden;
-
 }
 
 .button {
-    -webkit-border-radius: 7px;
-    -moz-border-radius: 7px;
     border-radius: 7px;
     color: #ffffff;
     font-size: 25px;
