@@ -1,8 +1,6 @@
 const form = document.querySelector('div.panel div.panel-body form');
 const infoContainer = form.querySelector('.info-container');
 const errorMessage = infoContainer.querySelector('.error-message');
-const successMessage = infoContainer.querySelector('.success-message');
-const submitButton = form.querySelector('p button');
 
 form.addEventListener('submit', function (ev) {
 
