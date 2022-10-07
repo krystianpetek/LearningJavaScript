@@ -1,0 +1,22 @@
+{
+    "id": 1,
+    "productName": "T-shirt",
+    "price": 16.80,
+    "productTags": [
+        "clothes",
+        "tshirts"
+    ],
+    "name": "myProject",
+    "version": "1.2.3",
+    "description": "My application",
+    "dogs": [
+        {
+            "name": "Puszek",
+            "age": 2
+        },
+        {
+            "name": "Pusheen",
+            "age": 1
+        }
+    ]
+}
