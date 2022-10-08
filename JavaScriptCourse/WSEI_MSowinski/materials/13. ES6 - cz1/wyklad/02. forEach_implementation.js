@@ -1,4 +1,4 @@
-// node 02. operationsOrArraysNext.js
+// node 02. forEach_implementation.js
 /* jshint -W104 */
 
 // Array.forEach()
