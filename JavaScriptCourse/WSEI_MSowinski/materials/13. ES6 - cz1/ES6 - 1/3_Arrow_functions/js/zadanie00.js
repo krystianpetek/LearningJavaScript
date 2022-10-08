@@ -1,13 +1,13 @@
-var Students = function(students) {
+const Students = function (students) {
 	this.names = students;
-  	this.numberOfLetters = [];
+	this.numberOfLetters = [];
 };
 
 
-Students.prototype.countLetters = function() {
+Students.prototype.countLetters = function () {
+	this.numberOfLetters = this.names.map(a => a.length);
+};
 
-}
-
-var students = new Students(["Ania", "Kamil", "Mariusz"]);
+const students = new Students(["Ania", "Kamil", "Mariusz"]);
 students.countLetters();
 console.log(students.numberOfLetters);

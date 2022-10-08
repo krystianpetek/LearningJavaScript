@@ -1,0 +1,16 @@
+{
+  "name": "3_arrow_functions",
+  "version": "1.0.1",
+  "description": "ES6 - arrow_functions",
+  "main": "./js/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "author": "Krystian",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
