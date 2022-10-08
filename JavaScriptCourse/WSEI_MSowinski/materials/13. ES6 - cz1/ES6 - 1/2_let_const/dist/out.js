@@ -1,0 +1,1 @@
+(()=>{let o=6;for(let o=0;o<10;o++){let o=10;o++,console.log(o)}console.log(o);const l={a:o++,firstVariable:o,func:function(o,l){console.log("")},xa:function(){console.log("xd")}};console.log(l),console.log(o)})();
