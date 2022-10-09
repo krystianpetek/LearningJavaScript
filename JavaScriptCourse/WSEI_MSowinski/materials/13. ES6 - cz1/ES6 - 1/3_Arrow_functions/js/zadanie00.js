@@ -1,3 +1,4 @@
+console.log('task 00');
 const Students = function (students) {
 	this.names = students;
 	this.numberOfLetters = [];
