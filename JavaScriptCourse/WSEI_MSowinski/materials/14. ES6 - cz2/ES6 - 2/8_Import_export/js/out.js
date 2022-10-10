@@ -1,0 +1,1 @@
+(()=>{let e=new Square(2);e.sayName(),console.log(e.area()),console.log((new Square).area())})();

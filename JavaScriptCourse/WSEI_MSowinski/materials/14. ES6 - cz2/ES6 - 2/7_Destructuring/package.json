@@ -1,0 +1,16 @@
+{
+    "name": "7_destructuring",
+    "version": "1.0.0",
+    "description": "> Stwórz w pełni działające środowisko, które pozwoli Ci pisać kod JavaScript w wersji 6.\r >\r > Pamiętaj o:\r > - ```npm init```\r > - Zainstalowaniu odpowiednich modułów\r > - Ustawieniu Webpacka, plikiem  wyjściowym  ma być `js/out.js`",
+    "main": "./js/app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": ".\\node_modules\\.bin\\webpack"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "webpack": "^5.74.0",
+        "webpack-cli": "^4.10.0"
+    }
+}
