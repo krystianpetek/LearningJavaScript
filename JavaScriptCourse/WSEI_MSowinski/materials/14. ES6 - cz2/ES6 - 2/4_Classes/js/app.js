@@ -110,3 +110,9 @@
 import { foods } from './zadanie06.js';
 
 foods.forEach(x => x.print());
+
+import { vMenuGenetator } from './zadanie07';
+
+vMenuGenetator.anime();
+vMenuGenetator.getType();
+vMenuGenetator.showItems();
