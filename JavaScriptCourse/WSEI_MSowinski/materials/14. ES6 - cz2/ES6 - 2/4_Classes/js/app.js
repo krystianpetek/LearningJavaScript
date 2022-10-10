@@ -106,3 +106,7 @@
     gumDuck.show();
 
 }
+
+import { foods } from './zadanie06.js';
+
+foods.forEach(x => x.print());
