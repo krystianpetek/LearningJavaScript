@@ -1,4 +1,4 @@
-class Polygon {
+export class Polygon {
   constructor(height, width) {
     this.name = 'Polygon';
     this.height = height;
@@ -6,7 +6,7 @@ class Polygon {
   }
 
   area() {
-      return this.height * this.width;
+    return this.height * this.width;
   }
 
   sayName() {

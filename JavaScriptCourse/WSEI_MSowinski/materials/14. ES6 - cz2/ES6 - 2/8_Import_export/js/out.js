@@ -1,1 +1,1 @@
-(()=>{let e=new Square(2);e.sayName(),console.log(e.area()),console.log((new Square).area())})();
+(()=>{"use strict";class e{constructor(e,s){this.name="Polygon",this.height=e,this.width=s}area(){return this.height*this.width}sayName(){console.log("Cześć jestem",this.name+".")}}class s extends e{constructor(e=5){super(e,e),this.name="Square"}}let t=new s(2);t.sayName(),console.log(t.area()),console.log((new s).area())})();
