@@ -83,18 +83,16 @@ equalityTest(3, '3');
 strictEqualityTest(3, 3);
 strictEqualityTest(3, '3');
 
-function multiArray(array){
+function multiArray(array) {
     var product = [];
     var m = 0;
-    for(var i = 0;i<array.length;i++)
-    {
-        for(var j = 0;j<array[i].length;j++)
-        {
+    for (var i = 0; i < array.length; i++) {
+        for (var j = 0; j < array[i].length; j++) {
             product[m++] = array[i][j];
         }
     }
     return product;
 }
-var prod = multiArray([[1,2],[3,4],[5,6,7]]);
+var prod = multiArray([[1, 2], [3, 4], [5, 6, 7]]);
 console.log(prod);
 
