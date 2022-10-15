@@ -1,10 +1,10 @@
-class AddSign extends React.Component {
+class AddLetter extends React.Component {
     state = {
         text: ""
     };
 
     handleClick = () => {
-        const letter = "a";
+        const letter = "A";
         this.setState({
             text: this.state.text + letter
         });
@@ -21,4 +21,4 @@ class AddSign extends React.Component {
     }
 };
 
-ReactDOM.render(<AddSign />, document.getElementById('root'));
+ReactDOM.render(<AddLetter />, document.getElementById('root'));
