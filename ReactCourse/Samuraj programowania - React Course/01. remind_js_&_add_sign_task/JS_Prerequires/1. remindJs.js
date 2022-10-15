@@ -39,11 +39,11 @@ console.log(result);
 
 const btn = document.querySelector('button');
 btn.addEventListener('click', () => console.log(this));
-btn.addEventListener('click', function() {
+btn.addEventListener('click', function () {
     console.log(this);
 });
 
-let users = ['Teresa','Jozef', 'Patrycja', 'Krystian'];
+let users = ['Teresa', 'Jozef', 'Patrycja', 'Krystian'];
 const usersString = users.join(' '); // join
 console.log(usersString);
 
@@ -54,7 +54,7 @@ console.log(usersWithOneMore);
 const allUsers = [...usersWithOneMore, 'Karolina']; // operator spread
 console.log(allUsers);
 
-const lowerLetterUsers = allUsers.map( user => user[0].toLowerCase() + (user.substring(1,user.length)));
+const lowerLetterUsers = allUsers.map(user => user[0].toLowerCase() + (user.substring(1, user.length)));
 console.log(lowerLetterUsers);
 
 allUsers.forEach(user => {
@@ -62,15 +62,15 @@ allUsers.forEach(user => {
     console.log(user);
 });
 
-const numbers = [2,3,4];
+const numbers = [2, 3, 4];
 let doubleNumber = numbers.map(number => {
-    return number*2; // trzeba pisać return jawnie
+    return number * 2; // trzeba pisać return jawnie
 });
 // lub
 doubleNumber = numbers.map(number => number * 2); // return niejawny
 console.log(doubleNumber);
 
-const usersAge = [20,21,23,43];
+const usersAge = [20, 21, 23, 43];
 let usersTotalAge = 0;
 usersAge.forEach(age => {
     console.log(`W przyszłym roku użytkownik będzie miał ${age + 1} lat`)
@@ -81,12 +81,12 @@ console.log(usersTotalAge);
 
 // new DOM
 const section = document.createElement('section');
-usersAge.forEach( (age, index, array) => {
+usersAge.forEach((age, index, array) => {
     section.innerHTML += (
         `<h1> Użytkownik ${index + 1}</h1>
         <p>wiek: ${age}</p>`
     );
-    if(index === array.length-1){
+    if (index === array.length - 1) {
         document.body.appendChild(section);
     }
 });
@@ -103,12 +103,12 @@ console.log(nameWithLetterK);
 
 // findIndex()
 const customers = [
-    {name: "Adam", age: 67},
-    {name: "Basia", age: 27},
-    {name: "Marta", age: 17}
+    { name: "Adam", age: 67 },
+    { name: "Basia", age: 27 },
+    { name: "Marta", age: 17 }
 ];
 
-const isUsersAdult = customers.findIndex( customer => {
+const isUsersAdult = customers.findIndex(customer => {
     return customer.age < 18;
 });
 console.log(isUsersAdult);

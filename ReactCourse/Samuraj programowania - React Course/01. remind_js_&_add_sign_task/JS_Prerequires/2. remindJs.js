@@ -1,29 +1,28 @@
-class City{
-
+class City {
 }
 
 const Warsaw = new City();
 const NewYork = new City();
 
-class CountryWithPopulation{ 
-    constructor(name, capital, population){
+class CountryWithPopulation {
+    constructor(name, capital, population) {
         this.name = name;
         this.capital = capital;
         this.population = population;
     }
 }
-const poland = new CountryWithPopulation('Polska','Warszawa', 38000000);
+const poland = new CountryWithPopulation('Polska', 'Warszawa', 38000000);
 
-class Country{
-    constructor(name){
+class Country {
+    constructor(name) {
         this.name = name;
         this.showName = () => console.log(this.name);
-        this.showCountryName = function(){
+        this.showCountryName = function () {
             return console.log(`Metoda w instacji wskazuje: ${this.name}`);
         };
     }
 
-    showCountryName(){
+    showCountryName() {
         console.log(`Metoda w prototypie wskazuje: ${this.name}`);
     }
 }
@@ -37,11 +36,11 @@ Poland.showName();
 Italy.showName();
 
 // dziedziczenie
-class Person{
-    constructor(name){
+class Person {
+    constructor(name) {
         this.name = name;
     }
-    showName(){
+    showName() {
         console.log(`Imię osoby to ${this.name}`);
     }
 }
@@ -51,11 +50,11 @@ class Student extends Person {
         super(name);
         this.degrees = degrees;
     }
-    showDegrees(){
+    showDegrees() {
         const completed = this.degrees.filter(degree => degree > 2);
         console.log(`Student ${this.name} ma stopnie: ${this.degrees} i zakończył już ${completed.length} przedmiotów.`);
     }
 }
 
-const Janek =  new Student('Janek', [2,3,4,5,2,3]);
+const Janek = new Student('Janek', [2, 3, 4, 5, 2, 3]);
 Janek.showDegrees();
