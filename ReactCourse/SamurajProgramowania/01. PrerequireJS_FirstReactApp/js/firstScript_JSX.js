@@ -8,8 +8,8 @@ const elementHTML = React.createElement(
     null,
     React.createElement(
         "div",
-        { 
-            id: "app" 
+        {
+            id: "app"
         }
     ),
     "Pierwszy element React"
@@ -41,9 +41,9 @@ const element5 = (
 
 const element6 = (
     <>
-    <div id="main" className="red">Tekst</div>
-    <section></section>
-    <section></section>
+        <div id="main" className="red">Tekst</div>
+        <section></section>
+        <section></section>
     </>
 )
 console.log(element6);

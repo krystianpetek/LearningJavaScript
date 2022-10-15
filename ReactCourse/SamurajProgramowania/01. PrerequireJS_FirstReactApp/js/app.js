@@ -13,11 +13,17 @@ class App extends React.Component {
 
 ReactDOM.render(<App />, document.getElementById("root"));
 
-const header = (<h1 className="title">Witaj na stronie!</h1>);
-
 const classBig = "big";
 
 const handleClick = () => alert("kliknął");
+
+const text = "Stopka...";
+
+const largeText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut error amet illum molestias, facere obcaecati commodi! Aliquam culpa sint quo voluptates numquam obcaecati ab laboriosam, debitis optio ratione eius dolorum.";
+
+const header = (
+    <h1 className="title">Witaj na stronie!</h1>
+);
 
 const main = (
     <div>
@@ -26,8 +32,6 @@ const main = (
     </div>
 );
 
-const text="Stopka...";
-const largeText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut error amet illum molestias, facere obcaecati commodi! Aliquam culpa sint quo voluptates numquam obcaecati ab laboriosam, debitis optio ratione eius dolorum.";
 const footer = (
     <footer>
         <p className={classBig}>{text}</p>
@@ -35,6 +39,6 @@ const footer = (
     </footer>
 );
 
-const app = [header,main,footer];
+const app = [header, main, footer];
 
 ReactDOM.render(app, document.getElementById("root"));

@@ -1,12 +1,11 @@
 // komponent funkcyjny - bezstanowy
-
 const Header = () => {
-    return (<h1>Pierwszy komponent</h1>);
+    return (
+        <h1>Pierwszy komponent</h1>
+    );
 };
 
-
 // komponent klasowy - stanowy
-
 class Article extends React.Component {
     state = {
         number: 0
