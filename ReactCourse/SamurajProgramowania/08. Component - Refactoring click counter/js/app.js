@@ -1,7 +1,10 @@
 class Counter extends React.Component {
-    state = {
-        count: 0,
-        result: this.props.result
+    constructor(props) {
+        super(props)
+        this.state = {
+            count: 0,
+            result: this.props.result
+        }
     }
 
     handleMathClick(type = "reset", number = 1) {
