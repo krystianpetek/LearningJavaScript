@@ -1,31 +1,54 @@
-const PositiveMessage = () => <p>You can watch this movie. Welcome!</p>
-const NegativeMessage = () => <p>You can't watch this movie, if you don't have at least 16 years old!</p>
+const ValidationMessage = (props) => {
+    const { txt } = props
+    return (<p>{txt}</p>)
+}
+
+const DisplayMessage = (props) => {
+    const { isConfirmed, isFormSubmitted } = props;
+    if (isFormSubmitted) {
+        if (isConfirmed) {
+            return <ValidationMessage txt="You can watch this movie. Welcome!" />;
+        }
+        else {
+            return <ValidationMessage txt="You can't watch this movie, if you don't have at least 16 years old!" />;
+        }
+    }
+    else {
+        return null;
+    }
+};
+
+const OrderForm = (props) => {
+    const { change, submit, checked } = props;
+    return (
+        <form onSubmit={submit}>
+            <input
+                id="age"
+                type="checkbox"
+                isConfirmed={checked}
+                onChange={change}
+            />
+            <label htmlFor="age">I have at least 16 years ago</label>
+            <br /><br />
+            <button type="submit">Buy ticket</button>
+        </form>)
+}
+
 
 class TicketShop extends React.Component {
-    state = {
-        isConfirmed: false,
-        isFormSubmitted: false
-    };
+    constructor(props) {
+        super(props)
+        this.state = {
+            isConfirmed: false,
+            isFormSubmitted: false
+        }
+    }
 
     handleCheckboxChange = () => {
         this.setState({
             isFormSubmitted: false,
             isConfirmed: !this.state.isConfirmed
         });
-    };
-
-    displayMessage = () => {
-        if (this.state.isFormSubmitted) {
-            if (this.state.isConfirmed) {
-                return <PositiveMessage />;
-            }
-            else {
-                return <NegativeMessage />;
-            }
-        }
-        else {
-            return null;
-        }
     };
 
     handleFormSubmit = (e) => {
@@ -38,21 +61,17 @@ class TicketShop extends React.Component {
     };
 
     render() {
+        const { isConfirmed, isFormSubmitted } = this.state;
         return (
             <>
                 <h1>Buy ticket for horror movie!</h1>
-                <form onSubmit={this.handleFormSubmit}>
-                    <input
-                        id="age"
-                        type="checkbox"
-                        isConfirmed={this.state.isConfirmed}
-                        onChange={this.handleCheckboxChange}
-                    />
-                    <label htmlFor="age">I have at least 16 years ago</label>
-                    <br /><br />
-                    <button type="submit">Buy ticket</button>
-                </form>
-                {this.displayMessage()}
+                <OrderForm
+                    change={this.handleCheckboxChange}
+                    submit={this.handleFormSubmit}
+                    checked={isConfirmed} />
+                <DisplayMessage
+                    isConfirmed={isConfirmed}
+                    isFormSubmitted={isFormSubmitted} />
             </>
         );
     }
