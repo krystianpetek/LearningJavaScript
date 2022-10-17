@@ -1,0 +1,24 @@
+body {
+    font-size: 16px;
+}
+
+div {
+    font-size: 1em;
+    font-family: arial, sans-serif;
+}
+
+button {
+    margin: 0 10px;
+    background-color: #fff;
+    border: 2px solid black;
+    box-shadow: 4px 3px 3px grey;
+    font-weight: bold;
+    font-size: 1em;
+    min-width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+button:disabled {
+    opacity: 0.5;
+}
