@@ -7,7 +7,7 @@ class List extends React.Component {
                     id: 1,
                     name: "Patrycja P."
                 }, {
-                    id: 2,
+                    id: 22,
                     name: "Krystian P."
                 }, {
                     id: 3,
@@ -24,7 +24,7 @@ class List extends React.Component {
     }
 
     handleDeletePerson = (props) => {
-        const people = this.state.listOfPeople.filter(people => people.id != props);
+        const people = this.state.listOfPeople.filter(people => people.id != props.id);
         this.setState({
             listOfPeople: people
         })
@@ -53,7 +53,7 @@ class Person extends React.Component {
                 <input
                     type="button"
                     value="Delete"
-                    onClick={this.props.delete.bind(this, person.id)} />
+                    onClick={this.props.delete.bind(this, person)} />
             </li>
         );
         return (
