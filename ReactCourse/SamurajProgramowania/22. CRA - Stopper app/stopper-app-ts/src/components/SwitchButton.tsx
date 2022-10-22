@@ -1,11 +1,11 @@
 import "./SwitchButton.css";
 
-interface SwitchButtonProps {
+interface ISwitchButtonProps {
     active: boolean;
     click: () => void;
 }
 
-export const SwitchButton = (props: SwitchButtonProps): JSX.Element => {
+export const SwitchButton = (props: ISwitchButtonProps): JSX.Element => {
     return <button onClick={props.click}>{props.active ? "Stop" : "Start"}</button>
 }
 

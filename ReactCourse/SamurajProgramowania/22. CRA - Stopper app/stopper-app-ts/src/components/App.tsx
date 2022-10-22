@@ -2,18 +2,17 @@ import React, { Component } from "react";
 import "./App.css";
 import { SwitchButton } from "./SwitchButton";
 
-interface AppProps { }
-interface AppState {
+interface IAppProps { }
+interface IAppState {
   time: number,
   active: boolean
 }
 
-class App extends Component<AppProps, AppState> {
+class App extends Component<IAppProps, IAppState> {
   idInterval: number = 0;
-  constructor(props: AppProps) {
+  constructor(props: IAppProps) {
     super(props);
     this.state = {
-
       time: 0,
       active: false
     }
@@ -27,13 +26,13 @@ class App extends Component<AppProps, AppState> {
       this.idInterval = window.setInterval(() => this.addSecond(), 1000);
     }
 
-    this.setState((previousState: AppState) => ({
+    this.setState((previousState: IAppState) => ({
       active: !previousState.active
     }))
   }
 
   addSecond = (): void => {
-    this.setState((prevState: AppState) => ({
+    this.setState((prevState: IAppState) => ({
       time: prevState.time + 1
     }))
   }
