@@ -44,6 +44,7 @@ class App extends Component<IAppProps, IAppState> {
   requestData = () => {
     const xhr: XMLHttpRequest = new XMLHttpRequest();
     xhr.open("GET", "https://jsonplaceholder.typicode.com/users", true);
+    xhr.send();
     xhr.onload = (): void => {
       if (xhr.status === 200) {
         const users: User[] = JSON.parse(xhr.responseText);
@@ -52,7 +53,6 @@ class App extends Component<IAppProps, IAppState> {
         })
       }
     }
-    xhr.send();
   }
 
   componentDidMount(): void {
