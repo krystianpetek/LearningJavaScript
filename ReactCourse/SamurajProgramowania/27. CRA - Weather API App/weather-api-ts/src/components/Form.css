@@ -1,0 +1,29 @@
+div {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+}
+
+form input {
+    padding: 10px 20px;
+    background-color: #202020;
+    color: white;
+    border: 1px solid;
+    margin: 5px;
+}
+
+/* form button {
+    border: 1px solid gray;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    cursor: pointer;
+    background-color: #202030;
+    color: white;
+} */

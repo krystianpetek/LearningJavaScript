@@ -1,0 +1,9 @@
+.form {
+    display: block;
+    text-align: center;
+    margin: 10px
+}
+
+.result {
+    padding: 20px;
+}
