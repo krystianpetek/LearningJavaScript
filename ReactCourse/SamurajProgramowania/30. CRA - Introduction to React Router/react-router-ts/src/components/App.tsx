@@ -1,10 +1,15 @@
 import React, { Component } from "react";
-import { BrowserRouter, Link } from "react-router-dom";
+import { BrowserRouter, Link, Route, Routes, NavLink } from "react-router-dom";
 import "./styles/App.css";
 
 interface IAppProps { }
 interface IAppState {
 }
+
+const Home = () => <h1>Starting page</h1>;
+const News = () => <h1>News</h1>;
+const Contact = () => <h1>Contact for us</h1>;
+const NotFound = () => <h1>Page not found!</h1>;
 
 class App extends Component<IAppProps, IAppState> {
   constructor(props: IAppProps) {
@@ -22,30 +27,35 @@ class App extends Component<IAppProps, IAppState> {
           <header>
             <nav>
               <ul>
-                {/* <li><a href="/">Start</a></li>
-                <li><a href="/news">News</a></li>
-                <li><a href="/contact">Contact</a></li> */}
-
                 <li>
-                  <Link to="/">Start</Link>
+                  <NavLink end to="/">Start</NavLink>
                 </li>
                 <li>
-                  <Link to="/news">News</Link>
+                  <NavLink end to="news">News</NavLink>
                 </li>
                 <li>
-                  <Link to="/contact">Contact</Link>
+                  <NavLink end to="contact">Contact</NavLink>
                 </li>
               </ul>
             </nav>
           </header>
           <section>
-            Page - welcome
+            Welcome page
+
+            <Routes>
+              <Route index element={<Home />} />
+              <Route path="news" element={<News />} />
+              <Route element={<NotFound />}></Route>
+              <Route path="contact" element={<Contact />} />
+            </Routes>
+
           </section>
         </div>
-
       </BrowserRouter>
     )
   }
 }
 
 export default App;
+
+// https://reactrouter.com/en/main/start/tutorial

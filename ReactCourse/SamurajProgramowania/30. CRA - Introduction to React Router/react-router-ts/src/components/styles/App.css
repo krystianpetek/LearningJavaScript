@@ -1,0 +1,35 @@
+nav {
+    background-color: #000;
+}
+
+ul {
+    display: flex;
+    list-style-type: none;
+}
+
+li {
+    flex-grow: 1;
+}
+
+a {
+    display: block;
+    padding: 15px 25px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-bottom: 4px solid black;
+}
+
+a:hover {
+    color: #FF0;
+}
+
+section {
+    padding-top: 30px;
+    text-align: center;
+}
+
+.active {
+    border-bottom-color: #ff0;
+}
