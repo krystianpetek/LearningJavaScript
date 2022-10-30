@@ -6,7 +6,10 @@ import Navigation from "./Navigation";
 import Page from "./Page";
 import Footer from "./Footer";
 
-interface IAppProps { }
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface IAppProps {
+}
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface IAppState {
 }
 
@@ -14,6 +17,7 @@ class App extends Component<IAppProps, IAppState> {
   constructor(props: IAppProps) {
     super(props);
     this.state = {
+
     }
   }
 
@@ -35,15 +39,11 @@ class App extends Component<IAppProps, IAppState> {
           <footer>
             <Footer />
           </footer>
-          <Routes>
-            <Route />
-          </Routes>
         </div>
       </BrowserRouter>
     )
   }
 }
-
 export default App;
 
 // https://reactrouter.com/en/main/start/tutorial

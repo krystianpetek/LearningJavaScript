@@ -10,17 +10,13 @@ div.app {
 
 header {
     flex-basis: 30vh;
-    color: white;
-    background-color: #333;
 }
 
 main {
     display: flex;
     padding: 30px 0;
     flex-grow: 1;
-    flex-direction: row;
 }
-
 
 aside {
     min-width: 240px;
@@ -28,7 +24,6 @@ aside {
 
 section.page {
     flex-grow: 1;
-    background-color: #424;
 }
 
 footer {
@@ -36,5 +31,5 @@ footer {
     padding: 10px 0;
     text-align: center;
     text-transform: uppercase;
-    background-color: #321;
+    background-color: #252525;
 }
