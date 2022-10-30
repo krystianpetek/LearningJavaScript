@@ -18,24 +18,23 @@ let message = {
     content: "JavaScript for brave",
     creator: "Jack Screw"
 };
+
 let emailObj = {
     content: "",
     to: "",
     from: "",
     subject: ""
-}
+};
+
 let smsObj = {
     content: "",
     phoneTo: "",
     phoneFrom: ""
-}
-//zmień definicje obiektu 
+};
+
 let email = Object.create(message)
 Object.assign(email, emailObj);
-
-//zmień definicje obiektu
 let SMS = Object.create(message);
-//zmień definicję obiektu
 Object.assign(message, smsObj);
 
 //Testy

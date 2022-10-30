@@ -1,52 +1,59 @@
 import React, { FunctionComponent, Fragment } from "react";
-import { INewTask } from "./INewTask";
+import INewTask from "./interfaces/INewTask";
+import "./styles/AddTask.css";
 
 interface AddTaskProps {
     newTask: INewTask,
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
-    onAdd: () => void
+    onAdd: (e: React.FormEvent<HTMLFormElement>) => void
 }
 
-const AddTask: FunctionComponent<AddTaskProps> = (props) =>
-(
-    <Fragment>
-        <div>
+const AddTask: FunctionComponent<AddTaskProps> = (props) => {
+    const minDate: string = new Date().toISOString().slice(0, 10);
+    return (
+        <div className="addTask">
             <form
                 onSubmit={props.onAdd}>
-                <div>
+                <div className="inputContainer">
                     <label htmlFor="name">Task name: </label>
                     <input
-                        type="text"
-                        value={props.newTask.name}
-                        name="name"
                         id="name"
+                        name="name"
+                        type="text"
+                        placeholder="Add new task"
+                        value={props.newTask.name}
                         onChange={props.onChange} />
                 </div>
-                <div>
-                    <label htmlFor="dateDone">Complete date: </label>
+                <div className="inputContainer">
+                    <label htmlFor="finishDate">Complete date: </label>
                     <input
-                        id="dateDone"
-                        name="dateDone"
+                        className="finishDate"
+                        id="finishDate"
+                        name="finishDate"
                         type="date"
-                        defaultValue={props.newTask.dateDone?.toDateString()}
+                        min={minDate}
+                        value={props.newTask.finishDate}
                         onChange={props.onChange} />
                 </div>
-                <div>
-                    <label htmlFor="important">Is priority: </label>
+                <div className="inputContainer">
+                    <label htmlFor="priority">Is priority: </label>
                     <input
-                        id="important"
-                        name="important"
+                        className="priority"
+                        id="priority"
+                        name="priority"
                         type="checkbox"
-                        checked={props.newTask.important}
+                        checked={props.newTask.priority}
                         onChange={props.onChange} />
                 </div>
-                <button
-                    type="submit"
-                    id="submitButton">Add new Task</button>
+                <div className="buttonContainer">
+                    <button className="submitButton"
+                        type="submit"
+                        id="submitButton">Add new task</button>
+                </div>
             </form>
         </div>
-    </Fragment>
-);
+    )
+};
 
 
 export default AddTask;

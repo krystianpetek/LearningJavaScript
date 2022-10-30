@@ -15,7 +15,7 @@ function Car(model, brand, power) {
     this.power = power;
 };
 
-Object.assign(Car.prototype, { weight: "", mileage: 0 });
+Object.assign(Car.prototype, Vehicle());
 
 //Testy
 let audi = new Car("A4", "Audi", 190);
