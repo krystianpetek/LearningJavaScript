@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\TypeScriptCourse\\TypeScript_Acedemind\\dist\\app.js"
+            "program": "${workspaceFolder}\\TypeScriptCourse\\TypeScript_Acedemind\\02-nextgen-js-vs-ts\\dist\\app.js"
         }
     ]
 }
