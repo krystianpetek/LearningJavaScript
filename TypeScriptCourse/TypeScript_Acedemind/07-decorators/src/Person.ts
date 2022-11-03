@@ -28,3 +28,30 @@ export function Logger(commentary: string) {
     console.log(constructor);
   };
 }
+
+export function ConstructorDecorator(template: string, hookid: string) {
+  return function <T extends { new (...args: any[]): { name: string } }>(
+    originalConstructor: T
+  ) {
+    return class extends originalConstructor {
+      constructor(..._: any[]) {
+        super(..._);
+        console.log("Constructor decorator executes");
+        const hookEl = document.getElementById(hookid);
+        if (hookEl) {
+          hookEl.innerHTML = template;
+          hookEl.style.color = "#fff";
+          hookEl.querySelector("h1")!.textContent = this.name;
+        }
+      }
+    };
+  };
+}
+
+@ConstructorDecorator("<h1>My person object</h1>", "app")
+export class OtherPerson {
+  name: string = "Krystian";
+  constructor() {
+    console.log("Creating other person...");
+  }
+}

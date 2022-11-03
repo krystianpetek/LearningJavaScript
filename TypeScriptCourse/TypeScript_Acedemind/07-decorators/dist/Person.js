@@ -34,4 +34,30 @@ export function Logger(commentary) {
         console.log(constructor);
     };
 }
+export function ConstructorDecorator(template, hookid) {
+    return function (originalConstructor) {
+        return class extends originalConstructor {
+            constructor(..._) {
+                super(..._);
+                console.log("Constructor decorator executes");
+                const hookEl = document.getElementById(hookid);
+                if (hookEl) {
+                    hookEl.innerHTML = template;
+                    hookEl.style.color = "#fff";
+                    hookEl.querySelector("h1").textContent = this.name;
+                }
+            }
+        };
+    };
+}
+let OtherPerson = class OtherPerson {
+    constructor() {
+        this.name = "Krystian";
+        console.log("Creating other person...");
+    }
+};
+OtherPerson = __decorate([
+    ConstructorDecorator("<h1>My person object</h1>", "app")
+], OtherPerson);
+export { OtherPerson };
 //# sourceMappingURL=Person.js.map
