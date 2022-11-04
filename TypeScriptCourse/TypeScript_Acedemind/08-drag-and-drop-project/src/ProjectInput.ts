@@ -1,15 +1,6 @@
 import { Validatable, Validate } from "./Validatable.js";
 import { projectState } from "./app.js";
-import { Component } from "./Component.js";
-
-function Autobind(_a: any, _b: string, descriptor: PropertyDescriptor) {
-  return {
-    ...descriptor.value,
-    get() {
-      return descriptor.value.bind(this);
-    },
-  };
-}
+import { Autobind, Component } from "./Component.js";
 
 export default class ProjectInput extends Component<
   HTMLDivElement,

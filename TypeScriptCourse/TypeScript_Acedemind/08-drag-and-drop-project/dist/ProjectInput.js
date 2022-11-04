@@ -6,15 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { Validate } from "./Validatable.js";
 import { projectState } from "./app.js";
-import { Component } from "./Component.js";
-function Autobind(_a, _b, descriptor) {
-    return {
-        ...descriptor.value,
-        get() {
-            return descriptor.value.bind(this);
-        },
-    };
-}
+import { Autobind, Component } from "./Component.js";
 export default class ProjectInput extends Component {
     constructor() {
         super("project-input", "app", true, "user-input");

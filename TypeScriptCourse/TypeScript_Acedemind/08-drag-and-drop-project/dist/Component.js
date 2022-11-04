@@ -13,4 +13,12 @@ export class Component {
         this.hostElement.insertAdjacentElement(insertAtBeginning ? "afterbegin" : "beforeend", this.element);
     }
 }
+export function Autobind(_a, _b, descriptor) {
+    return {
+        ...descriptor.value,
+        get() {
+            return descriptor.value.bind(this);
+        },
+    };
+}
 //# sourceMappingURL=Component.js.map

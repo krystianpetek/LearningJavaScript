@@ -36,3 +36,12 @@ export abstract class Component<T extends HTMLElement, U extends HTMLElement> {
   abstract configure(): void;
   abstract renderContent(): void;
 }
+
+export function Autobind(_a: any, _b: string, descriptor: PropertyDescriptor) {
+  return {
+    ...descriptor.value,
+    get() {
+      return descriptor.value.bind(this);
+    },
+  };
+}
