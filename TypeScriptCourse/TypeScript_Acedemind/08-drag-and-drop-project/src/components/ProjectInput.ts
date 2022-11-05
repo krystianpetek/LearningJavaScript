@@ -1,7 +1,7 @@
-import * as Validate from "../util/Validate.js";
-import { projectState } from "../state/ProjectState.js";
-import { Component } from "./Component.js";
-import { Autobind } from "../decorators/Autobind.js";
+import * as Validate from "../util/Validate";
+import { projectState } from "../state/ProjectState";
+import { Component } from "./Component";
+import { Autobind } from "../decorators/Autobind";
 
 export default class ProjectInput extends Component<
   HTMLDivElement,
