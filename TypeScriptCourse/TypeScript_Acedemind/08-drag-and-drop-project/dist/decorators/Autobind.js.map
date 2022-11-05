@@ -1,0 +1,1 @@
+{"version":3,"file":"Autobind.js","sourceRoot":"","sources":["../../src/decorators/Autobind.ts"],"names":[],"mappings":"AAAA,MAAM,UAAU,QAAQ,CAAC,EAAO,EAAE,EAAU,EAAE,UAA8B;IAC1E,OAAO;QACL,GAAG,UAAU,CAAC,KAAK;QACnB,GAAG;YACD,OAAO,UAAU,CAAC,KAAK,CAAC,IAAI,CAAC,IAAI,CAAC,CAAC;QACrC,CAAC;KACF,CAAC;AACJ,CAAC"}

@@ -1,7 +1,8 @@
-import { projectState } from "./app.js";
-import { Autobind, Component } from "./Component.js";
-import { DragTarget } from "./Draggable.js";
-import { Project, ProjectStatus } from "./Project.js";
+import { Autobind } from "../decorators/Autobind.js";
+import { Component } from "./Component.js";
+import { DragTarget } from "../models/Draggable.js";
+import { Project, ProjectStatus } from "../models/Project.js";
+import { projectState } from "../state/ProjectState.js";
 import { ProjectItem } from "./ProjectItem.js";
 
 export default class ProjectList

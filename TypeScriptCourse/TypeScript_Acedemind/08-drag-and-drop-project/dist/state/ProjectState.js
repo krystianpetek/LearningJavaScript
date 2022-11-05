@@ -1,4 +1,4 @@
-import { Project, ProjectStatus } from "./Project.js";
+import { Project, ProjectStatus } from "../models/Project.js";
 export class State {
     constructor() {
         this.listeners = [];

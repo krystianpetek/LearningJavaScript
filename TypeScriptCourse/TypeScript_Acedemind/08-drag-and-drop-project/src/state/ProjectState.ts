@@ -1,5 +1,12 @@
-import { Project, ProjectStatus } from "./Project.js";
-import { State } from "./State.js";
+import { Project, ProjectStatus } from "../models/Project.js";
+
+type Listener<T> = (items: T[]) => void;
+export class State<T> {
+  protected listeners: Listener<T>[] = [];
+  addListener(listenerFn: Listener<T>) {
+    this.listeners.push(listenerFn);
+  }
+}
 
 export class ProjectState extends State<Project> {
   private projects: Project[] = [];
@@ -43,3 +50,5 @@ export class ProjectState extends State<Project> {
     }
   }
 }
+
+export const projectState = ProjectState.getInstance();
