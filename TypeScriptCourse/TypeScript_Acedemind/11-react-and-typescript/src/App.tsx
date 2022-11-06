@@ -25,6 +25,6 @@ function App() {
       <TodoList onDeleteTodo={todoDeleteHandler} items={todos} />
     </div>
   );
-};
+}
 
 export default App;
