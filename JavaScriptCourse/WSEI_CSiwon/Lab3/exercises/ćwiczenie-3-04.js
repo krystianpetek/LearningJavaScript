@@ -12,34 +12,45 @@
  * Postaraj się robić walidację w osobnych wywołaniach `filter`.
  */
 
-const { parse } = require("node:path/win32");
-
-
-
-const active = ["aktywny", "aktywna", "nieaktywny", "aktywna"];
+const active = ["aktywny", "aktywna", "nieaktywny", "nieaktywna"];
 
 function parseStudents(input) {
+    if (input === undefined)
+        return [];
+
     const studentsInput = input.split("\n");
     const studentslocal = studentsInput.map(student => student.split("\t"));
     const validatedStudents = studentslocal.filter(student => {
         if (!student[0] && !student[0].length > 25) return;
         if (student[1] > 200 || student[1] < 0) return;
-        if (parseInt(student[1]) !== typeof "number") {
+        if (typeof parseInt(student[1]) !== "number") {
             return;
         }
-        if (student[2].some(x => !x.includes(active))) {
+        student[1] = parseInt(student[1]);
+
+        if (!active.includes(student[2])) {
             return;
         }
 
+        if (student[2] === active[0] || student[2] === active[1])
+            student[2] = true;
+        else {
+            student[2] = false;
+        }
         return student;
-    })
-    return validatedStudents;
+    });
+    return validatedStudents.map(student => {
+        return {
+            name: student[0],
+            ects: student[1],
+            active: student[2]
+        }
+    });
 }
-
 const studentLines = "Adam\t123\taktywny\nEwa\t34\tnieaktywna\nRoman\t56\taktywny\nKazik\t-34\taktyw\nBogdan\tfalse";
 
 const students = parseStudents(studentLines);
-
+console.log(parseStudents().length);
 try {
     if (students.length == 3) {
         console.log("Test 41 passed");
