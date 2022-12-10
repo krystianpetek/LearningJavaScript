@@ -1,0 +1,10 @@
+body{
+    color: darkmagenta;
+}
+.border{
+    border: 2px darkmagenta solid; ;
+
+}
+.red{
+    background: lightcoral;
+}
