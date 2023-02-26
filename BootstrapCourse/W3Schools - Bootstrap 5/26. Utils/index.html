@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap 5 Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .borderdiv {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: #f9f9f9;
+            margin: 5px;
+        }
+
+        .borderradius {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: #777;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-3">
+        <div>
+            <h5>Borders</h5>
+            <span class="borderdiv border"></span>
+            <span class="borderdiv border border-0"></span>
+            <span class="borderdiv border border-top-0"></span>
+            <span class="borderdiv border border-end-0"></span>
+            <span class="borderdiv border border-bottom-0"></span>
+            <span class="borderdiv border border-start-0"></span>
+            <br />
+            <span class="borderdiv border-top"></span>
+            <span class="borderdiv border-end"></span>
+            <span class="borderdiv border-bottom"></span>
+            <span class="borderdiv border-start"></span>
+        </div>
+        <div>
+            <h5>Border Width</h5>
+            <span class="borderdiv border border-1"></span>
+            <span class="borderdiv border border-2"></span>
+            <span class="borderdiv border border-3"></span>
+            <span class="borderdiv border border-4"></span>
+            <span class="borderdiv border border-5"></span>
+        </div>
+        <div>
+            <h5>Border Color</h5>
+            <span class="borderdiv border border-primary"></span>
+            <span class="borderdiv border border-secondary"></span>
+            <span class="borderdiv border border-success"></span>
+            <span class="borderdiv border border-danger"></span>
+            <span class="borderdiv border border-warning"></span>
+            <span class="borderdiv border border-info"></span>
+            <span class="borderdiv border border-light"></span>
+            <span class="borderdiv border border-dark"></span>
+            <span class="borderdiv border border-white"></span>
+        </div>
+        <div>
+            <h5>Border radius</h5>
+            <span class="borderradius rounded"></span>
+            <span class="borderradius rounded-top"></span>
+            <span class="borderradius rounded-end"></span>
+            <span class="borderradius rounded-bottom"></span>
+            <span class="borderradius rounded-start"></span>
+            <span class="borderradius rounded-circle"></span>
+            <span class="borderradius rounded-pill" style="width:130px"></span>
+            <span class="borderradius rounded-0"></span>
+            <span class="borderradius rounded-1"></span>
+            <span class="borderradius rounded-2"></span>
+            <span class="borderradius rounded-3"></span>
+            <span class="borderradius rounded-4"></span>
+            <span class="borderradius rounded-5"></span>
+        </div>
+        <div class="clearfix">
+            <h5>Float left/right</h5>
+            <span class="float-start">Float left</span>
+            <span class="float-end">Float right</span>
+        </div>
+        <div>
+            <h5>Responsive float</h5>
+            <div class="float-sm-end">Float right on small screens or wider</div><br>
+            <div class="float-md-end">Float right on medium screens or wider</div><br>
+            <div class="float-lg-end">Float right on large screens or wider</div><br>
+            <div class="float-xl-end">Float right on extra large screens or wider</div><br>
+            <div class="float-xxl-end">Float right on XXL screens or wider</div><br>
+            <div class="float-none">Float none</div>
+        </div>
+        <div class="mx-auto bg-warning" style="width:150px">Centered</div>
+    </div>
+    <div class="container">
+        <h5>Width</h5>
+        <p>Set the width of an element with the w-* classes:</p>
+        <div class="w-25 bg-warning">Width 25%</div>
+        <div class="w-50 bg-warning">Width 50%</div>
+        <div class="w-75 bg-warning">Width 75%</div>
+        <div class="w-100 bg-warning">Width 100%</div>
+        <div class="w-auto bg-warning">Auto Width</div>
+        <div class="mw-100 bg-warning">Max Width 100%</div>
+    </div>
+    </div>
+    <div class="container">
+        <h5>Height</h5>
+        <p>Set the height of an element with the w-* classes:</p>
+        <div style="height:200px;background-color:#ddd">
+            <div class="h-25 d-inline-block p-2 bg-warning">Height 25%</div>
+            <div class="h-50 d-inline-block p-2 bg-warning">Height 50%</div>
+            <div class="h-75 d-inline-block p-2 bg-warning">Height 75%</div>
+            <div class="h-100 d-inline-block p-2 bg-warning">Height 100%</div>
+            <div class="h-auto d-inline-block p-2 bg-warning">Auto Height</div>
+            <div class="mh-100 d-inline-block p-2 bg-warning" style="height:500px">Max Height 100%</div>
+        </div>
+    </div>
+    <div class="container">
+        <h5>Spacing</h5>
+        <p>Set the spacing of an element with the {property}{sides}-{breakpoint}-{size} classes. Omit breakpoint if you
+            want the padding or margin to work on all screen sizes.</p>
+        <div class="pt-4 bg-warning">I only have a top padding (1.5rem)</div>
+        <div class="p-5 bg-success">I have a padding on all sides (3rem)</div>
+        <div class="m-5 pb-5 bg-info">I have a margin on all sides (3rem) and a bottom padding (3rem)</div>
+    </div>
+    <div class="container">
+        <h5>Shadows</h5>
+        <div class="shadow-none p-4 mb-4 bg-light">No shadow</div>
+        <div class="shadow-sm p-4 mb-4 bg-white">Small shadow</div>
+        <div class="shadow p-4 mb-4 bg-white">Default shadow</div>
+        <div class="shadow-lg p-4 mb-4 bg-white">Large shadow</div>
+    </div>
+    <div class="container">
+        <h5>Vertical align</h5>
+        <span class="align-baseline">baseline</span>
+        <span class="align-top">top</span>
+        <span class="align-middle">middle</span>
+        <span class="align-bottom">bottom</span>
+        <span class="align-text-top">text-top</span>
+        <span class="align-text-bottom">text-bottom</span>
+    </div>
+    <div class="container">
+        <h5>Aspect ratio</h5>
+        <div class="ratio ratio-1x1">
+            <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+        </div>
+
+        <!-- Aspect ratio 4:3 -->
+        <div class="ratio ratio-4x3">
+            <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+        </div>
+
+        <!-- Aspect ratio 16:9 -->
+        <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+        </div>
+
+        <!-- Aspect ratio 21:9 -->
+        <div class="ratio ratio-21x9">
+            <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+        </div>
+    </div>
+    <div class="container">
+        <h5>Visibility</h5>
+        <div class="visible">I am visible</div>
+        <div class="invisible">I am invisible</div>
+
+        <h5>Close icon</h5>
+        <button type="button" class="btn-close"></button>
+
+        <h5>Screen readers</h5>
+        <span class="visually-hidden">I will be hidden on all screens except for screen readers.</span>
+    </div>
+    <div class="container">
+        <h2>Contextual Link Colors</h2>
+        <a href="#" class="text-muted">Muted link.</a>
+        <a href="#" class="text-primary">Primary link.</a>
+        <a href="#" class="text-success">Success link.</a>
+        <a href="#" class="text-info">Info link.</a>
+        <a href="#" class="text-warning">Warning link.</a>
+        <a href="#" class="text-danger">Danger link.</a>
+        <a href="#" class="text-secondary">Secondary link.</a>
+        <a href="#" class="text-dark">Dark grey link.</a>
+        <a href="#" class="text-body">Body/black link.</a>
+        <a href="#" class="text-light">Light grey link.</a>
+    </div>
+    <div class="container mt-3">
+        <h2>Background Color with Contrasting Text Color</h2>
+        <p class="text-bg-primary">This text is important.</p>
+        <p class="text-bg-success">This text indicates success.</p>
+        <p class="text-bg-info">This text represents some information.</p>
+        <p class="text-bg-warning">This text represents a warning.</p>
+        <p class="text-bg-danger">This text represents danger.</p>
+        <p class="text-bg-secondary">Secondary background color.</p>
+        <p class="text-bg-dark">Dark grey background color.</p>
+        <p class="text-bg-light">Light grey background color.</p>
+    </div>
+
+</body>
+
+</html>
