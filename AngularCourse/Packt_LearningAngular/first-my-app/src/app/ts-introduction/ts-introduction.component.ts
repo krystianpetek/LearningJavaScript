@@ -116,3 +116,62 @@ const addAndDouble = (x: number, y: number): number => {
 //     });
 //   };
 // }
+
+const newItem: number = 3;
+const oldArray: number[] = [1, 2];
+const newArray: number[] = [...oldArray, newItem];
+
+const oldPerson = { name: 'John' };
+const newPerson: { name: string; age: number } = { ...oldPerson, age: 20 };
+
+const baseUrl = 'baseUrl';
+const pathToResource = 'pathToResource';
+let parameter: string = '';
+let parameter2: string = '';
+const url =
+  baseUrl + pathToResource + `?param=${parameter}` + `&param2=${parameter2}`;
+
+function method<T>(arg: T): T {
+  return arg;
+}
+method<number>(1);
+
+function methodGeneric<T>(arg: T[]): T[] {
+  console.log(arg.length);
+  return arg;
+}
+class CustomPerson extends Array {}
+class Person {}
+const people: Person[] = [];
+const newCustomPerson = new CustomPerson();
+methodGeneric<Person>(people);
+methodGeneric<CustomPerson>(newCustomPerson);
+
+interface Shape {
+  area(): number;
+}
+class Square implements Shape {
+  area(): number {
+    return 1;
+  }
+}
+class Circle implements Shape {
+  area(): number {
+    return 2;
+  }
+}
+function allAreas<T extends Shape>(...args: T[]): number {
+  let total = 0;
+  args.forEach((x) => {
+    total += x.area();
+  });
+  return total;
+}
+allAreas(new Square(), new Circle());
+
+const square = new Square();
+const area = square?.area();
+
+const mySquare = square ? square : new Square();
+
+const nullishMySquare = square ?? new Square();
