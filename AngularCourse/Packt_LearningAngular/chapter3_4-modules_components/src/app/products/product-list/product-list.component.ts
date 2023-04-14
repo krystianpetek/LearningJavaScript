@@ -28,9 +28,14 @@ export class ProductListComponent implements AfterViewInit {
     | undefined;
 
   public selectedProduct: string = '';
+  public products = ['Webcam', 'Microphone', 'Wireless keyboard'];
 
   onBuy(name: string) {
     window.alert(`You just bought ${name}!`);
+  }
+
+  trackByProducts(index: number, name: string): number {
+    return index;
   }
 
   ngAfterViewInit(): void {
