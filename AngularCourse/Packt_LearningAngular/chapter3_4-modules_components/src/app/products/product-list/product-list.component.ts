@@ -22,7 +22,7 @@ export class ProductListComponent {
     backgroundColor: 'yellow',
   };
 
-  public selectedProduct: string = '';
+  public selectedProduct: string = 'Microphone';
 
   onBuy(name: string) {
     window.alert(`You just bought ${name}!`);
