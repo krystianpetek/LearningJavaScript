@@ -21,4 +21,6 @@ export class ProductListComponent {
     width: '250px',
     backgroundColor: 'yellow',
   };
+
+  public selectedProduct: string = '';
 }
