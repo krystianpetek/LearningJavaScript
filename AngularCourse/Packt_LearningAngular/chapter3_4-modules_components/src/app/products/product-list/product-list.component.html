@@ -1,5 +1,11 @@
 <p>product-list works!</p>
-<p>{{title}}</p>
-<p [innerHTML]="title"></p>
-<p [attr.aria-label]="'my Text'"></p>
-<p [innerText]="'my Text'"></p>
+<p>{{title}} <strong>(interpolation)</strong></p>
+<p [innerHTML]="title + ' bind the title property to the innerText <strong>(property binding)</strong>'"></p>
+<p [attr.aria-label]="'my Text'">set the aria-label accessibility attribute through <strong>property binding</strong>
+</p>
+<span [innerText]="'my Text'"></span><span><strong> innerText property binding</strong></span>
+
+<p [class.star]="isLiked"><strong>class binding (single class)</strong> 'isLiked'</p>
+<p [class]="currentClasses"><strong>class binding (multiple classes)</strong> object</p>
+<p [style.color]="'greenyellow'" [style.backgroundColor]="'lightblue'" [style.width.px]="100">style binding</p>
+<p [style]="currentStyles">style binding from TS property</p>

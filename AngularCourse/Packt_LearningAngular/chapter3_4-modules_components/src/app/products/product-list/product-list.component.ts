@@ -7,4 +7,18 @@ import { Component } from '@angular/core';
 })
 export class ProductListComponent {
   public title: string = 'product-list';
+  public isLiked: boolean = false;
+  public currentClasses: { star: boolean; active: boolean } = {
+    star: true,
+    active: false,
+  };
+  public currentStyles: {
+    color: string;
+    width: string;
+    backgroundColor: string;
+  } = {
+    color: 'green',
+    width: '250px',
+    backgroundColor: 'yellow',
+  };
 }
