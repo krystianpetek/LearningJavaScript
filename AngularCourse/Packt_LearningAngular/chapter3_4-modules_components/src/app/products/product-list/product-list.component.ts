@@ -27,7 +27,7 @@ export class ProductListComponent implements AfterViewInit {
     | ProductDetailComponent
     | undefined;
 
-  public selectedProduct: string = 'Microphone';
+  public selectedProduct: string = '';
 
   onBuy(name: string) {
     window.alert(`You just bought ${name}!`);
