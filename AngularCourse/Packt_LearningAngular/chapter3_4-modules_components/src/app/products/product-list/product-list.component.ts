@@ -24,7 +24,7 @@ export class ProductListComponent {
 
   public selectedProduct: string = '';
 
-  onBuy() {
-    window.alert(`You just bought ${this.selectedProduct}!`);
+  onBuy(name: string) {
+    window.alert(`You just bought ${name}!`);
   }
 }
