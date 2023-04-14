@@ -6,8 +6,7 @@ import { Component, OnDestroy } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnDestroy {
-  ngOnDestroy(): void {
-    
-  }
+  ngOnDestroy(): void {}
   title = 'chapter3-modules';
+  today = new Date();
 }
