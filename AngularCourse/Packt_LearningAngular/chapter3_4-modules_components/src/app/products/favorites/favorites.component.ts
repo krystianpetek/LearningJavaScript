@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Host, OnInit, Optional } from '@angular/core';
 import { Product } from '../product';
 import { ProductsService } from '../products.service';
 
@@ -8,11 +8,11 @@ import { ProductsService } from '../products.service';
   styleUrls: ['./favorites.component.scss'],
 })
 export class FavoritesComponent implements OnInit {
-  private _productService: ProductsService;
+  @Host() private _productService: ProductsService;
 
   public products: Product[] = [];
 
-  public constructor(productService: ProductsService) {
+  public constructor(@Host() @Optional() productService: ProductsService) {
     this._productService = productService;
   }
 

@@ -7,6 +7,7 @@ import { ProductsService } from '../products.service';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss'],
   providers: [ProductsService],
+  viewProviders: [ProductsService],
 })
 export class ProductListComponent implements AfterViewInit, OnInit {
   private readonly _productService: ProductsService;
