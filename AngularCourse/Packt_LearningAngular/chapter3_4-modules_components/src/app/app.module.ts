@@ -8,6 +8,7 @@ import { ProductComponent } from './products/product/product.component';
 import { FilterPipe } from './filter.pipe';
 import { CopyrightDirective } from './copyright.directive';
 import { NumericDirective } from './numeric.directive';
+import { AutofocusDirective } from './autofocus.directive';
 
 @NgModule({
   declarations: [AppComponent, CopyrightDirective, NumericDirective],
@@ -17,6 +18,7 @@ import { NumericDirective } from './numeric.directive';
     ProductsModule,
     ProductComponent,
     FilterPipe,
+    AutofocusDirective,
   ],
   providers: [],
   bootstrap: [AppComponent],
