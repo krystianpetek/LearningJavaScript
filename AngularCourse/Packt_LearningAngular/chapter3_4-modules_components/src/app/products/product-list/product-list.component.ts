@@ -1,13 +1,15 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
 import { ProductDetailComponent } from '../product-detail/product-detail.component';
 import { Product } from '../product';
-
+import { ProductsService } from '../products.service';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss'],
 })
-export class ProductListComponent implements AfterViewInit {
+export class ProductListComponent implements AfterViewInit, OnInit {
+  private readonly _productService: ProductsService;
+
   public title: string = 'product-list';
   public isLiked: boolean = false;
   public currentClasses: { star: boolean; active: boolean } = {
@@ -24,16 +26,20 @@ export class ProductListComponent implements AfterViewInit {
     backgroundColor: 'yellow',
   };
 
+  public selectedProduct: Product | undefined;
+  public products: Product[] = [];
+
+  public constructor(productService: ProductsService) {
+    this._productService = productService;
+  }
+
+  ngOnInit(): void {
+    this.products = this._productService.getProducts();
+  }
+
   @ViewChild(ProductDetailComponent) productDetail:
     | ProductDetailComponent
     | undefined;
-
-  public selectedProduct: Product | undefined;
-  public products: Product[] = [
-    { name: 'Webcam', price: 100 },
-    { name: 'Microphone', price: 200 },
-    { name: 'Wireless keyboard', price: 85 },
-  ];
 
   onBuy(product: Product) {
     window.alert(`You just bought ${product.name}!`);
