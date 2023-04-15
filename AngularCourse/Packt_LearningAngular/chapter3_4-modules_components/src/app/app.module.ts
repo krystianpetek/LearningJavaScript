@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { ProductsModule } from './products/products.module';
 import { ProductComponent } from './products/product/product.component';
 import { FilterPipe } from './filter.pipe';
+import { CopyrightDirective } from './copyright.directive';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, CopyrightDirective],
   imports: [
     BrowserModule,
     AppRoutingModule,
