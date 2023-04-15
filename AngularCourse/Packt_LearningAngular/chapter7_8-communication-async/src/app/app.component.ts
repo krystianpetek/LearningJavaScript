@@ -9,16 +9,25 @@ export class AppComponent {
   public title = 'chapter7_8-communication-async';
 
   public constructor() {
-    this.changeTitle(this.setTitle);
+    this.onComplete().then(this.setTitle);
+    // this.changeTitle(this.setTitle);
   }
 
   private setTitle: () => void = () => {
     this.title = 'Learning Angular';
   };
 
-  private changeTitle: (callback: Function) => void = (callback: Function) => {
-    setTimeout(() => {
-      callback();
-    }, 2000);
-  };
+  private onComplete() {
+    return new Promise<void>((resolve) => {
+      setTimeout(() => {
+        resolve();
+      }, 2000);
+    });
+  }
+
+  // private changeTitle: (callback: Function) => void = (callback: Function) => {
+  //   setTimeout(() => {
+  //     callback();
+  //   }, 2000);
+  // };
 }
