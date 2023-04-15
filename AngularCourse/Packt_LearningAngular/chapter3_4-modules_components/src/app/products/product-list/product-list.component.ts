@@ -6,7 +6,12 @@ import { ProductsService } from '../products.service';
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss'],
-  providers: [ProductsService],
+  providers: [
+    {
+      provide: ProductsService,
+      useClass: ProductsService,
+    },
+  ],
   viewProviders: [ProductsService],
 })
 export class ProductListComponent implements AfterViewInit, OnInit {
