@@ -7,9 +7,10 @@ import { ProductsModule } from './products/products.module';
 import { ProductComponent } from './products/product/product.component';
 import { FilterPipe } from './filter.pipe';
 import { CopyrightDirective } from './copyright.directive';
+import { NumericDirective } from './numeric.directive';
 
 @NgModule({
-  declarations: [AppComponent, CopyrightDirective],
+  declarations: [AppComponent, CopyrightDirective, NumericDirective],
   imports: [
     BrowserModule,
     AppRoutingModule,
