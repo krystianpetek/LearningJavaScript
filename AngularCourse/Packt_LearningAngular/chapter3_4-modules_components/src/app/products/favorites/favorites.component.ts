@@ -2,6 +2,8 @@ import { Component, Host, OnInit, Optional } from '@angular/core';
 import { Product } from '../product';
 import { ProductsService } from '../products.service';
 import { FavoritesService } from './favorites.service';
+import { favoritesFactory } from './favorites.Factory';
+import { ProductViewService } from '../product-view/product-view.service';
 
 @Component({
   selector: 'app-favorites',
@@ -11,6 +13,11 @@ import { FavoritesService } from './favorites.service';
     {
       provide: ProductsService,
       useClass: FavoritesService,
+    },
+    {
+      provide: ProductsService,
+      useFactory: favoritesFactory(true),
+      deps: [ProductViewService],
     },
   ],
 })
