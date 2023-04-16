@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Product } from '../product';
 import { ProductsService } from '../products.service';
 import { ProductViewService } from '../product-view/product-view.service';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -16,19 +16,15 @@ import { Subscription } from 'rxjs';
 })
 export class ProductListComponent implements OnInit, OnDestroy {
   private readonly _productService: ProductsService;
-  private _productSubscription?: Subscription | undefined;
-  public products: Product[] = [];
+  private _productSubscription?: Subscription;
+  public products$?: Observable<Product[]>;
 
   public constructor(productService: ProductsService) {
     this._productService = productService;
   }
 
   private getProducts(): void {
-    this._productSubscription = this._productService
-      .getProducts()
-      .subscribe((products) => {
-        this.products = products;
-      });
+    this.products$ = this._productService.getProducts();
   }
 
   ngOnInit(): void {

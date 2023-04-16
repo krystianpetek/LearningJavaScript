@@ -1,6 +1,6 @@
-<h2>Product List</h2>
+<h3>Product List</h3>
 <ul>
-  <li *ngFor="let product of products let i = index">
+  <li *ngFor="let product of products$ | async; let i = index">
     <app-product-view [id]="i"></app-product-view>
   </li>
 </ul>
