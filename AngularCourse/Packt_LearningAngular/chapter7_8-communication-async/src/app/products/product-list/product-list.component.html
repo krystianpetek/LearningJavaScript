@@ -1,0 +1,9 @@
+<p>product-list works!</p>
+<p>{{title}}</p>
+
+<h2>Product List</h2>
+<ul>
+  <li *ngFor="let product of products let i = index">
+    <app-product-view [id]="i"></app-product-view>
+  </li>
+</ul>
