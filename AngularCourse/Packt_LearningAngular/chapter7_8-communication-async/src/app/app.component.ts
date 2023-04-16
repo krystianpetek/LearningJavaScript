@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +11,10 @@ export class AppComponent {
 
   public constructor() {
     this.title$.subscribe(this.setTitle);
+
+    const complete$ = from(this.onComplete());
+    const subscribe = complete$.subscribe(this.setTitle);
+    subscribe.unsubscribe();
     // this.onComplete().then(this.setTitle);
     // this.changeTitle(this.setTitle);
   }
@@ -26,13 +30,13 @@ export class AppComponent {
     }, 2000);
   });
 
-  // private onComplete() {
-  //   return new Promise<void>((resolve) => {
-  //     setInterval(() => {
-  //       resolve();
-  //     }, 2000);
-  //   });
-  // }
+  private onComplete() {
+    return new Promise<void>((resolve) => {
+      setInterval(() => {
+        resolve();
+      }, 2000);
+    });
+  }
 
   // private changeTitle: (callback: Function) => void = (callback: Function) => {
   //   setTimeout(() => {
