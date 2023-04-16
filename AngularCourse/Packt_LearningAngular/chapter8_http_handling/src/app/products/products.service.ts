@@ -28,8 +28,10 @@ export class ProductsService {
   }
 
   public getProduct(id: number): Observable<Product> {
-    return this._httpClient
-      .get<ProductDto>(`${this._productsUrl}/${id}}`)
-      .pipe(map((product) => convertToProduct(product)));
+    return this._httpClient.get<ProductDto>(`${this._productsUrl}/${id}`).pipe(
+      map((product) => {
+        return convertToProduct(product);
+      })
+    );
   }
 }

@@ -1,5 +1,8 @@
-<h4>Product Details</h4>
-<h2>{{product?.name}}</h2>
-<p>{{product?.price | currency: 'EUR'}}</p>
-
-<button (click)="buy()">Buy Now</button>
+<div *ngIf="product$ | async as product">
+  <h4>Product Details</h4>
+  <h2>{{product?.name}}</h2>
+  <span>{{product?.price | currency: 'EUR'}}</span>
+  <p>
+    <button (click)="buy()">Buy Now</button>
+  </p>
+</div>
