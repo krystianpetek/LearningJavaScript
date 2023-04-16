@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Product } from '../product';
+import { Product } from '../models/product';
 import { ProductsService } from '../products.service';
 import { Subscription, Observable } from 'rxjs';
 @Component({
