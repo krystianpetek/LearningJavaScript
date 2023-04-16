@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Product } from './models/product';
 import { Observable, map, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { ProductDto } from './models/product-dto';
+import { ProductDto, convertToProduct } from './models/product-dto';
 
 @Injectable({
   providedIn: 'root',
@@ -21,12 +21,15 @@ export class ProductsService {
     return this._httpClient.get<ProductDto[]>(this._productsUrl).pipe(
       map((products) =>
         products.map((product: ProductDto): Product => {
-          return {
-            name: product.title,
-            price: product.price,
-          };
+          return convertToProduct(product);
         })
       )
     );
+  }
+
+  public getProduct(id: number): Observable<Product> {
+    return this._httpClient
+      .get<ProductDto>(`${this._productsUrl}/${id}}`)
+      .pipe(map((product) => convertToProduct(product)));
   }
 }

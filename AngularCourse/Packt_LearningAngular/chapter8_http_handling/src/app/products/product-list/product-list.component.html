@@ -4,3 +4,10 @@
     {{this.i+1}}. {{product.name}}
   </li>
 </ul>
+
+<app-product-detail *ngIf="selectedProduct; else noProduct" [product]="selectedProduct" (bought)="onBuy($event)">
+</app-product-detail>
+
+<ng-template #noProduct>
+  <p>No product selected!</p>
+</ng-template>

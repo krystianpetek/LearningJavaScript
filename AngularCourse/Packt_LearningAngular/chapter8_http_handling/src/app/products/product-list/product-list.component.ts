@@ -1,15 +1,14 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Product } from '../models/product';
 import { ProductsService } from '../products.service';
-import { Subscription, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss'],
 })
-export class ProductListComponent implements OnInit, OnDestroy {
+export class ProductListComponent implements OnInit {
   private readonly _productService: ProductsService;
-  private _productSubscription?: Subscription;
   public products$?: Observable<Product[]>;
 
   public selectedProduct: Product | undefined;
@@ -22,11 +21,11 @@ export class ProductListComponent implements OnInit, OnDestroy {
     this.products$ = this._productService.getProducts();
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.getProducts();
   }
 
-  ngOnDestroy(): void {
-    this._productSubscription?.unsubscribe();
+  public onBuy(product: Product) {
+    window.alert(`You bought: ${product.name}`);
   }
 }
