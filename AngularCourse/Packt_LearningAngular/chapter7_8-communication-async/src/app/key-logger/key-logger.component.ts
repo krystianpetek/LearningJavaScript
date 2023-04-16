@@ -32,7 +32,7 @@ export class KeyLoggerComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    if (this.fromSubscribe) this.fromSubscribe.unsubscribe();
-    if (this.ofSubscribe) this.ofSubscribe.unsubscribe();
+    this.fromSubscribe?.unsubscribe();
+    this.ofSubscribe?.unsubscribe();
   }
 }

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Product } from '../product';
 import { ProductsService } from '../products.service';
 import { ProductViewService } from '../product-view/product-view.service';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -13,10 +14,9 @@ import { ProductViewService } from '../product-view/product-view.service';
     },
   ],
 })
-export class ProductListComponent implements OnInit {
+export class ProductListComponent implements OnInit, OnDestroy {
   private readonly _productService: ProductsService;
-  public title: string = 'product-list';
-
+  private _productSubscription?: Subscription | undefined;
   public products: Product[] = [];
 
   public constructor(productService: ProductsService) {
@@ -24,12 +24,18 @@ export class ProductListComponent implements OnInit {
   }
 
   private getProducts(): void {
-    this._productService.getProducts().subscribe((products) => {
-      this.products = products;
-    });
+    this._productSubscription = this._productService
+      .getProducts()
+      .subscribe((products) => {
+        this.products = products;
+      });
   }
 
   ngOnInit(): void {
     this.getProducts();
+  }
+
+  ngOnDestroy(): void {
+    this._productSubscription?.unsubscribe();
   }
 }
