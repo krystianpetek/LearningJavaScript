@@ -34,4 +34,13 @@ export class ProductsService {
       })
     );
   }
+
+  public addProduct(name: string, price: number): Observable<Product> {
+    return this._httpClient
+      .post<ProductDto>(this._productsUrl, {
+        title: name,
+        price: price,
+      })
+      .pipe(map((product) => convertToProduct(product)));
+  }
 }

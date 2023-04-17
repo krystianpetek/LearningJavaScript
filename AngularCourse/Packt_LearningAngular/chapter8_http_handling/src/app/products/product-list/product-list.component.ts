@@ -9,7 +9,8 @@ import { Observable } from 'rxjs';
 })
 export class ProductListComponent implements OnInit {
   private readonly _productService: ProductsService;
-  public products$?: Observable<Product[]>;
+  public products?: Product[] = [];
+  // public products$?: Observable<Product[]>;
 
   public selectedProduct: Product | undefined;
 
@@ -18,8 +19,14 @@ export class ProductListComponent implements OnInit {
   }
 
   private getProducts(): void {
-    this.products$ = this._productService.getProducts();
+    this._productService.getProducts().subscribe((products) => {
+      this.products = products;
+    });
   }
+
+  // private getProducts(): void {
+  //   this.products$ = this._productService.getProducts();
+  // }
 
   public ngOnInit(): void {
     this.getProducts();
@@ -27,5 +34,9 @@ export class ProductListComponent implements OnInit {
 
   public onBuy(product: Product) {
     window.alert(`You bought: ${product.name}`);
+  }
+
+  public onAdd(product: Product) {
+    this.products?.push(product);
   }
 }

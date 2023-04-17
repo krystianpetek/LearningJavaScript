@@ -1,6 +1,7 @@
 <h3>Product List</h3>
 <ul>
-  <li *ngFor="let product of (products$ | async)! | sort ; let i = index" (click)="selectedProduct = product">
+  <!-- <li *ngFor="let product of (products$ | async)! | sort ; let i = index" (click)="selectedProduct = product"> -->
+  <li *ngFor="let product of this.products! | sort ; let i = index" (click)="selectedProduct = product">
     {{this.i+1}}. {{product.name}}
   </li>
 </ul>
@@ -12,3 +13,5 @@
 <ng-template #noProduct>
   <p>No product selected!</p>
 </ng-template>
+
+<app-product-create (added)="onAdd($event)"></app-product-create>
