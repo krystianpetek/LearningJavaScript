@@ -43,4 +43,10 @@ export class ProductsService {
       })
       .pipe(map((product) => convertToProduct(product)));
   }
+
+  public updateProduct(id: number, price: number): Observable<void> {
+    return this._httpClient.patch<void>(`${this._productsUrl}/${id}`, {
+      price,
+    });
+  }
 }
