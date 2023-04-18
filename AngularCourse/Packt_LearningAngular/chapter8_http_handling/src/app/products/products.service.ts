@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Product } from './models/product';
 import { Observable, map, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -10,7 +10,6 @@ import { ProductDto, convertToProduct } from './models/product-dto';
 export class ProductsService {
   private _productsUrl: string = 'https://fakestoreapi.com/products';
   private _httpClient: HttpClient;
-
   private _products?: Product[];
 
   public constructor(httpClient: HttpClient) {
@@ -48,5 +47,9 @@ export class ProductsService {
     return this._httpClient.patch<void>(`${this._productsUrl}/${id}`, {
       price,
     });
+  }
+
+  public deleteProduct(id: number): Observable<void> {
+    return this._httpClient.delete<void>(`${this._productsUrl}/${id}`);
   }
 }

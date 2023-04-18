@@ -39,4 +39,11 @@ export class ProductListComponent implements OnInit {
   public onAdd(product: Product) {
     this.products?.push(product);
   }
+
+  public onDelete() {
+    this.products = this.products?.filter(
+      (product) => product.id != this.selectedProduct?.id
+    );
+    this.selectedProduct = undefined;
+  }
 }
