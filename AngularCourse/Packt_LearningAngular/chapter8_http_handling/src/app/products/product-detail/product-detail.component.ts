@@ -11,6 +11,7 @@ import {
 import { Product } from '../models/product';
 import { Observable } from 'rxjs';
 import { ProductsService } from '../products.service';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -21,14 +22,19 @@ import { ProductsService } from '../products.service';
 })
 export class ProductDetailComponent implements OnChanges {
   private _productService: ProductsService;
+  public authService: AuthService;
   @Input() public product: Product | undefined;
   @Output() public bought = new EventEmitter<Product>();
   @Output() public deleted = new EventEmitter<void>();
   @Input() public id = -1;
   public product$?: Observable<Product>;
 
-  public constructor(productsService: ProductsService) {
+  public constructor(
+    productsService: ProductsService,
+    authService: AuthService
+  ) {
     this._productService = productsService;
+    this.authService = authService;
   }
 
   public ngOnChanges(changes: SimpleChanges): void {

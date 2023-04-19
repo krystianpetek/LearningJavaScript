@@ -13,7 +13,7 @@ export class AuthService {
     this._httpClient = httpClient;
   }
 
-  private login(): Observable<string> {
+  public login(): Observable<string> {
     return this._httpClient
       .post<string>('https://fakestoreapi.com/auth/login', {
         username: 'kpetek',
@@ -22,7 +22,11 @@ export class AuthService {
       .pipe(tap((token) => (this.token = token)));
   }
 
-  private logout(): void {
+  public logout(): void {
     this.token = '';
+  }
+
+  get isLoggedIn(): boolean {
+    return this.token != '';
   }
 }
