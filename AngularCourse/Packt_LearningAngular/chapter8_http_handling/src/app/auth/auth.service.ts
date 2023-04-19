@@ -16,8 +16,8 @@ export class AuthService {
   public login(): Observable<string> {
     return this._httpClient
       .post<string>('https://fakestoreapi.com/auth/login', {
-        username: 'kpetek',
-        password: '3478*#54',
+        username: 'donero',
+        password: 'ewedon',
       })
       .pipe(tap((token) => (this.token = token)));
   }
