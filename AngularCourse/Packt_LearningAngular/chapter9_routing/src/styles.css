@@ -2,3 +2,14 @@
   background-color: #363636;
   color: #bebebe;
 }
+
+a {
+  color: #64a3e2;
+  transition: 0.3s;
+  margin: 5px;
+  text-decoration: none;
+}
+
+a:hover {
+  color: goldenrod;
+}
