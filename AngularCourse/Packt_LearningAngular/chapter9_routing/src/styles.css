@@ -86,3 +86,7 @@ a {
 a:hover {
   color: goldenrod;
 }
+
+.active {
+  color: white;
+}
