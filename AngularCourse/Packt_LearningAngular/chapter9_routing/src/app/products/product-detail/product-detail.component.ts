@@ -7,11 +7,13 @@ import {
   ChangeDetectionStrategy,
   OnChanges,
   SimpleChanges,
+  OnInit,
 } from '@angular/core';
 import { Product } from '../models/product';
-import { Observable } from 'rxjs';
+import { Observable, switchMap } from 'rxjs';
 import { ProductsService } from '../products.service';
 import { AuthService } from 'src/app/auth/auth.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-detail',
@@ -20,8 +22,9 @@ import { AuthService } from 'src/app/auth/auth.service';
   encapsulation: ViewEncapsulation.Emulated,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProductDetailComponent implements OnChanges {
+export class ProductDetailComponent implements OnChanges, OnInit {
   private _productService: ProductsService;
+  private _route: ActivatedRoute;
   public authService: AuthService;
   @Input() public product: Product | undefined;
   @Output() public bought = new EventEmitter<Product>();
@@ -31,10 +34,20 @@ export class ProductDetailComponent implements OnChanges {
 
   public constructor(
     productsService: ProductsService,
-    authService: AuthService
+    authService: AuthService,
+    route: ActivatedRoute
   ) {
     this._productService = productsService;
     this.authService = authService;
+    this._route = route;
+  }
+
+  public ngOnInit(): void {
+    this.product$ = this._route.paramMap.pipe(
+      switchMap((params) => {
+        return this._productService.getProduct(Number(params.get('id')));
+      })
+    );
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
