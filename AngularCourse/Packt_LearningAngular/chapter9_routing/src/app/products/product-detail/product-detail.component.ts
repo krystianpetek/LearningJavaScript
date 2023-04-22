@@ -43,16 +43,21 @@ export class ProductDetailComponent implements OnChanges, OnInit {
   }
 
   public ngOnInit(): void {
-    // after redirect
-    const id: number = this._route.snapshot.params['id'] as number;
-    this.product$ = this._productService.getProduct(id);
-
     // observable to change view
     this.product$ = this._route.paramMap.pipe(
       switchMap((params) => {
         return this._productService.getProduct(Number(params.get('id')));
       })
     );
+
+    // after redirect
+    const id: number = this._route.snapshot.params['id'] as number;
+    this.product$ = this._productService.getProduct(id);
+
+    // filtering data
+    this._route.queryParamMap.subscribe((parameters) => {
+      console.log(parameters.get('sortOrder'));
+    });
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
