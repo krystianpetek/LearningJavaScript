@@ -14,8 +14,12 @@ const routes: Routes = [
   },
   {
     path: 'about',
-    loadChildren: () =>
-      import('./about/about.module').then((m) => m.AboutModule),
+    loadComponent: () =>
+      import('./about/about-info/about-info.component').then(
+        (c) => c.AboutInfoComponent
+      ),
+    // loadChildren: () =>
+    // import('./about/about.module').then((m) => m.AboutModule),
     canMatch: [authGuard],
   },
   { path: '**', component: PageNotFoundComponent },
