@@ -4,8 +4,17 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 const routes: Routes = [
-  { path: 'products', component: ProductListComponent },
-  { path: 'products/:id', component: ProductDetailComponent },
+  {
+    path: 'products',
+    component: ProductListComponent,
+    children: [
+      {
+        path: ':id',
+        component: ProductDetailComponent,
+      },
+    ],
+  },
+  // { path: 'products/:id', component: ProductDetailComponent },
   { path: '', redirectTo: '/products', pathMatch: 'full' },
 ];
 
