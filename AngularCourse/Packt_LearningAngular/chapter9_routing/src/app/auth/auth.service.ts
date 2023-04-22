@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
 
 @Injectable({
@@ -8,6 +9,7 @@ import { Observable, tap } from 'rxjs';
 export class AuthService {
   private token: string = '';
   private _httpClient: HttpClient;
+  private router: Router = inject(Router);
 
   constructor(httpClient: HttpClient) {
     this._httpClient = httpClient;
@@ -24,6 +26,7 @@ export class AuthService {
 
   public logout(): void {
     this.token = '';
+    this.router.navigate(['/']);
   }
 
   get isLoggedIn(): boolean {
