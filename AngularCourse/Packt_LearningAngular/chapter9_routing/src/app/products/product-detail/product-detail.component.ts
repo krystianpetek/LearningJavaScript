@@ -10,7 +10,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { Product } from '../models/product';
-import { Observable, switchMap } from 'rxjs';
+import { Observable, of, switchMap } from 'rxjs';
 import { ProductsService } from '../products.service';
 import { AuthService } from 'src/app/auth/auth.service';
 import { ActivatedRoute } from '@angular/router';
@@ -43,16 +43,21 @@ export class ProductDetailComponent implements OnChanges, OnInit {
   }
 
   public ngOnInit(): void {
+    // after redirect
+    const id: number = this._route.snapshot.params['id'] as number;
+    this.product$ = this._productService.getProduct(id);
+
+    // prevent flickering after navigate for /products-redirect/:id
+    this.product$ = this._route.data.pipe(
+      switchMap((data) => of(data['product']))
+    );
+
     // observable to change view
     this.product$ = this._route.paramMap.pipe(
       switchMap((params) => {
         return this._productService.getProduct(Number(params.get('id')));
       })
     );
-
-    // after redirect
-    const id: number = this._route.snapshot.params['id'] as number;
-    this.product$ = this._productService.getProduct(id);
 
     // filtering data
     this._route.queryParamMap.subscribe((parameters) => {

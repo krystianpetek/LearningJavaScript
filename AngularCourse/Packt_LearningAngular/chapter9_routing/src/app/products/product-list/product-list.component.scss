@@ -1,4 +1,4 @@
 :host {
-  display: flex;
-
+  display: grid;
+  grid-template-columns: 1fr 0fr 1fr;
 }
