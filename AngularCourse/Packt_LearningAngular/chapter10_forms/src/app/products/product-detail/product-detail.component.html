@@ -8,7 +8,7 @@
     <button (click)="this.changePrice(this.product, price.valueAsNumber)">Change using onClick</button>
   </div>
   <form (ngSubmit)="changePrice(product, priceValue!)">
-    <input placeholder="New price" name="price" [(ngModel)]="price" />
+    <input placeholder="New price" name="price" [(ngModel)]="priceValue" />
     <button type="submit">Change by ngModel</button>
   </form>
   <p>

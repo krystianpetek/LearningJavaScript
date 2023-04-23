@@ -5,7 +5,7 @@ import { SortPipe } from './sort.pipe';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductCreateComponent } from './product-create/product-create.component';
 import { ProductsRoutingModule } from './products-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,12 @@ import { FormsModule } from '@angular/forms';
     ProductDetailComponent,
     ProductCreateComponent,
   ],
-  imports: [CommonModule, ProductsRoutingModule, FormsModule],
+  imports: [
+    CommonModule,
+    ProductsRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   exports: [ProductListComponent],
 })
 export class ProductsModule {}
