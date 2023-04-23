@@ -8,6 +8,7 @@ import { ProductsModule } from './products/products.module';
 import { HttpClientModule } from '@angular/common/http';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthModule } from './auth/auth.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, CartComponent, PageNotFoundComponent],
@@ -17,6 +18,7 @@ import { AuthModule } from './auth/auth.module';
     ProductsModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
