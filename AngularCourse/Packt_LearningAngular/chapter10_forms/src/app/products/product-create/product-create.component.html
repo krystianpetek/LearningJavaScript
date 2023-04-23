@@ -16,11 +16,11 @@
   <form [formGroup]="productForm" (ngSubmit)="createProductReactive()">
     <div>
       <label for="name">Name</label>
-      <input formControlName="name" id="name" #nameReactive />
+      <input formControlName="name" id="name" #nameReactive required="true">
     </div>
     <div>
       <label for="price">Name</label>
-      <input formControlName="price" id="price" #priceReactive />
+      <input formControlName="price" id="price" #priceReactive required="true" />
     </div>
     <button type="submit">Create</button>
   </form>
