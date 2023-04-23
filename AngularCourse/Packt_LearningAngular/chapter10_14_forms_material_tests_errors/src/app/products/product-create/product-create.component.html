@@ -11,6 +11,7 @@
 
   <button (click)="createProduct(name.value, price.valueAsNumber)">Add new</button>
 </div>
+
 <div>
   <h2>Reactive form</h2>
   <form [formGroup]="productForm" (ngSubmit)="createProductReactive()">
@@ -51,5 +52,22 @@
       </div>
     </form>
     <button [disabled]="this.productForm.invalid" type="submit">Create</button>
+  </form>
+</div>
+
+
+<div>
+  <h2>Angular Material form</h2>
+  <form [formGroup]="productForm" (ngSubmit)="createProductReactive()">
+    <mat-form-field>
+      <input matInput formControlName="name" id="name" placeholder="Name" required="true">
+      <mat-error>The name is not valid</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="price" id="price" placeholder="Price" required="true">
+      <mat-error>The price is required</mat-error>
+      <mat-hint>Price should be between 1 and 10000</mat-hint>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" [disabled]="this.productForm.invalid">Add new</button>
   </form>
 </div>

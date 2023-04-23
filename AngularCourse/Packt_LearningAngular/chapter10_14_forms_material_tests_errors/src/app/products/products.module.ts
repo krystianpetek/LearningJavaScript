@@ -6,6 +6,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { ProductCreateComponent } from './product-create/product-create.component';
 import { ProductsRoutingModule } from './products-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppMaterialModule } from '../app-material.module';
 
 @NgModule({
   declarations: [
@@ -16,9 +17,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    ProductsRoutingModule,
     FormsModule,
+    AppMaterialModule,
     ReactiveFormsModule,
+    ProductsRoutingModule,
   ],
   exports: [ProductListComponent],
 })

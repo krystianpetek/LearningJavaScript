@@ -9,18 +9,18 @@ import { AppComponent } from './app.component';
 import { CartComponent } from './cart/cart.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthModule } from './auth/auth.module';
-import { AppMaterialModule } from './app-material.module';
+import { ProductsModule } from './products/products.module';
 
 @NgModule({
   declarations: [AppComponent, CartComponent, PageNotFoundComponent],
   imports: [
-    AppMaterialModule,
     AuthModule,
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    ProductsModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

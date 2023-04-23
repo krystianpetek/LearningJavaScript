@@ -10,10 +10,6 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-div {
-  padding: 0 16px;
-}
-
 h1 {
   font-size: 32px;
 }
@@ -51,11 +47,7 @@ li {
 }
 
 input {
-  font-size: 14px;
   border-radius: 4px;
-  padding: 8px;
-  margin-bottom: 16px;
-  border: 1px solid #BDBDBD;
 }
 
 label {
