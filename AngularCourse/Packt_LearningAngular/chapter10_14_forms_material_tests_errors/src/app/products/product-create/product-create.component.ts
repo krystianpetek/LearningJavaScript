@@ -18,9 +18,12 @@ import { Observable, map } from 'rxjs';
 export class ProductCreateComponent implements OnInit {
   private _productsService: ProductsService;
   private _formBuilder: FormBuilder;
-  public showPriceRangeHint: boolean = false;
   private products: Product[] = [];
+
+  public showPriceRangeHint: boolean = false;
   public products$: Observable<Product[]> | undefined;
+  public categories = ['Hardware', 'Computers', 'Clothing', 'Software'];
+  public isChecked: boolean = false;
   @Output() public added = new EventEmitter<Product>();
 
   public productForm = new FormGroup<{
