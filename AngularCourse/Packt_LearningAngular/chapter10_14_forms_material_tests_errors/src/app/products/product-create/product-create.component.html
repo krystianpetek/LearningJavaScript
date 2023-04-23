@@ -55,12 +55,13 @@
   </form>
 </div>
 
-
 <div>
   <h2>Angular Material form</h2>
+
   <form [formGroup]="productForm" (ngSubmit)="createProductReactive()">
     <mat-form-field>
-      <input matInput formControlName="name" id="name" placeholder="Name" required="true">
+      <input matInput formControlName="name" id="name" placeholder="Name" required="true"
+        [matAutocomplete]="productsAuto">
       <mat-error>The name is not valid</mat-error>
     </mat-form-field>
     <mat-form-field>
@@ -70,4 +71,7 @@
     </mat-form-field>
     <button mat-raised-button color="primary" type="submit" [disabled]="this.productForm.invalid">Add new</button>
   </form>
+  <mat-autocomplete #productsAuto>
+    <mat-option *ngFor="let product of this.products$ | async" [value]="product.name">{{product.name}}</mat-option>
+  </mat-autocomplete>
 </div>
