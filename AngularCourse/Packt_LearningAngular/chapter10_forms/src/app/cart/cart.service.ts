@@ -6,7 +6,6 @@ import { Product } from '../products/models/product';
 })
 export class CartService {
   public cart: Product[] = [];
-  constructor() {}
 
   public addProduct(product: Product): void {
     this.cart.push(product);
