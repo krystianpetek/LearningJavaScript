@@ -1,7 +1,9 @@
 <div class="navbar">
+  <a routerLink="/material" routerLinkActive="active">Material</a>
   <a routerLink="/products" routerLinkActive="active">Products</a>
   <a [routerLink]="['/cart']" routerLinkActive="active">Cart</a>
   <a routerLink="/about" routerLinkActive="active">About us</a>
+  <app-auth></app-auth>
+
 </div>
 <router-outlet></router-outlet>
-<app-auth></app-auth>

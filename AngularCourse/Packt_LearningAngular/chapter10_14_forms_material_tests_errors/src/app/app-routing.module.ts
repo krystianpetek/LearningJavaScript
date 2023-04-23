@@ -4,8 +4,13 @@ import { CartComponent } from './cart/cart.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { authGuard } from './auth/auth.guard';
 import { cartCheckoutGuard } from './cart/cart-checkout.guard';
+import { MaterialControlsComponent } from './material-controls/material-controls.component';
 
 const routes: Routes = [
+  {
+    path: 'material',
+    component: MaterialControlsComponent,
+  },
   {
     path: 'cart',
     component: CartComponent,
