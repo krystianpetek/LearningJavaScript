@@ -30,6 +30,9 @@
       <span *ngIf="this.priceForm.touched && this.priceForm.hasError('min')">
         The price should be greather than 1
       </span>
+      <span *ngIf="this.priceForm.touched && this.priceForm.hasError('outOfRange')">
+        The price is out of range
+      </span>
     </div>
     <form formGroupName="info">
       <h2>Product information</h2>
