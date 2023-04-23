@@ -12,7 +12,7 @@
     <button type="submit">Change by ngModel</button>
   </form>
   <p>
-    <button *ngIf="this.authService.isLoggedIn" (click)="buy()">Buy Now</button>
+    <button *ngIf="this.isLoggedUser" (click)="buy(this.product)">Buy Now</button>
     <button class="delete" (click)="removeProduct(this.product)">Delete</button>
   </p>
 </div>

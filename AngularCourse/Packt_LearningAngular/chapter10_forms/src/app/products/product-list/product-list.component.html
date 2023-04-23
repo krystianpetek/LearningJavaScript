@@ -14,7 +14,7 @@
   </ul>
 
   <app-product-detail *ngIf="selectedProduct; else noProduct" [product]="selectedProduct" [id]="selectedProduct.id"
-    (bought)="onBuy($event)" (deleted)="onDelete()">
+    (deleted)="onDelete()">
   </app-product-detail>
 
   <ng-template #noProduct>

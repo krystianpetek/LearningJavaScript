@@ -32,10 +32,6 @@ export class ProductListComponent implements OnInit {
     this.getProducts();
   }
 
-  public onBuy(product: Product) {
-    window.alert(`You bought: ${product.name}`);
-  }
-
   public onAdd(product: Product) {
     this.products?.push(product);
   }

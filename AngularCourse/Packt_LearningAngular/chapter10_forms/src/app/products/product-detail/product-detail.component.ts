@@ -14,6 +14,7 @@ import { Observable, of, switchMap } from 'rxjs';
 import { ProductsService } from '../products.service';
 import { AuthService } from 'src/app/auth/auth.service';
 import { ActivatedRoute } from '@angular/router';
+import { CartService } from 'src/app/cart/cart.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -25,9 +26,10 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductDetailComponent implements OnChanges, OnInit {
   private _productService: ProductsService;
   private _route: ActivatedRoute;
-  public authService: AuthService;
-  @Input() public product: Product | undefined;
-  @Output() public bought = new EventEmitter<Product>();
+  private _authService: AuthService;
+  private _cartService: CartService;
+
+  @Input() public product?: Product;
   @Output() public deleted = new EventEmitter<void>();
   @Input() public id = -1;
   public product$?: Observable<Product>;
@@ -36,10 +38,12 @@ export class ProductDetailComponent implements OnChanges, OnInit {
   public constructor(
     productsService: ProductsService,
     authService: AuthService,
+    cartService: CartService,
     route: ActivatedRoute
   ) {
     this._productService = productsService;
-    this.authService = authService;
+    this._authService = authService;
+    this._cartService = cartService;
     this._route = route;
   }
 
@@ -70,8 +74,8 @@ export class ProductDetailComponent implements OnChanges, OnInit {
     this.product$ = this._productService.getProduct(this.id);
   }
 
-  public buy() {
-    this.bought.emit(this.product);
+  public buy(product: Product) {
+    this._cartService.addProduct(product);
   }
 
   public changePrice(product: Product, price: number): void {
@@ -84,5 +88,9 @@ export class ProductDetailComponent implements OnChanges, OnInit {
     this._productService.deleteProduct(product.id).subscribe(() => {
       this.deleted.emit();
     });
+  }
+
+  public get isLoggedUser(): boolean {
+    return this._authService.isLoggedIn;
   }
 }
