@@ -1,7 +1,12 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { ProductsService } from '../products.service';
 import { Product } from '../models/product';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-product-create',
@@ -23,8 +28,12 @@ export class ProductCreateComponent {
       image: FormControl<string>;
     }>;
   }>({
-    name: new FormControl<string>('', { nonNullable: true }),
+    name: new FormControl<string>('', {
+      nonNullable: true,
+      validators: [Validators.required],
+    }),
     price: new FormControl<number | undefined>(undefined, {
+      validators: [Validators.required, Validators.min(2)],
       nonNullable: true,
     }),
     info: new FormGroup<{
@@ -71,16 +80,16 @@ export class ProductCreateComponent {
     });
   }
 
-  private get name(): FormControl<string> {
+  public get nameForm(): FormControl<string> {
     return this.productForm.controls.name;
   }
-  private get price(): FormControl<number | undefined> {
+  public get priceForm(): FormControl<number | undefined> {
     return this.productForm.controls.price;
   }
 
   public createProductReactive(): void {
     this._productsService
-      .addProduct(this.name.value, Number(this.price.value))
+      .addProduct(this.nameForm.value, Number(this.priceForm.value))
       .subscribe((product) => {
         this.productForm.reset();
         this.added.emit(product);

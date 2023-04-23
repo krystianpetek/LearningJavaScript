@@ -17,10 +17,19 @@
     <div>
       <label for="name">Name</label>
       <input formControlName="name" id="name" #nameReactive required="true">
+      <span *ngIf="this.nameForm.touched && this.nameForm.invalid">
+        The name is not valid
+      </span>
     </div>
     <div>
-      <label for="price">Name</label>
+      <label for="price">Price</label>
       <input formControlName="price" id="price" #priceReactive required="true" />
+      <span *ngIf="this.priceForm.touched && this.priceForm.hasError('required')">
+        The price is required
+      </span>
+      <span *ngIf="this.priceForm.touched && this.priceForm.hasError('min')">
+        The price should be greather than 1
+      </span>
     </div>
     <form formGroupName="info">
       <h2>Product information</h2>
@@ -37,6 +46,6 @@
         <input id="photo" formControlName="image" />
       </div>
     </form>
-    <button type="submit">Create</button>
+    <button [disabled]="this.productForm.invalid" type="submit">Create</button>
   </form>
 </div>
