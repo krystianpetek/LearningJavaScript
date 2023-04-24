@@ -10,12 +10,15 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
 
 import { MaterialControlsComponent } from './material-controls/material-controls.component';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [MaterialControlsComponent],
   imports: [
+    BrowserModule,
     MatButtonModule,
     MatIconModule,
     MatButtonToggleModule,
@@ -27,6 +30,7 @@ import { MaterialControlsComponent } from './material-controls/material-controls
     MatNativeDateModule,
     MatDatepickerModule,
     MatToolbarModule,
+    MatListModule,
   ],
   exports: [
     MatButtonModule,
@@ -40,6 +44,7 @@ import { MaterialControlsComponent } from './material-controls/material-controls
     MatNativeDateModule,
     MatDatepickerModule,
     MatToolbarModule,
+    MatListModule,
   ],
 })
 export class AppMaterialModule {}
