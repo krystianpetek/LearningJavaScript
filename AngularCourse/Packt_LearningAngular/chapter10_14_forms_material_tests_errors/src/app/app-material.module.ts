@@ -9,6 +9,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { MaterialControlsComponent } from './material-controls/material-controls.component';
 
@@ -25,6 +26,7 @@ import { MaterialControlsComponent } from './material-controls/material-controls
     MatCheckboxModule,
     MatNativeDateModule,
     MatDatepickerModule,
+    MatToolbarModule,
   ],
   exports: [
     MatButtonModule,
@@ -37,6 +39,7 @@ import { MaterialControlsComponent } from './material-controls/material-controls
     MatCheckboxModule,
     MatNativeDateModule,
     MatDatepickerModule,
+    MatToolbarModule,
   ],
 })
 export class AppMaterialModule {}

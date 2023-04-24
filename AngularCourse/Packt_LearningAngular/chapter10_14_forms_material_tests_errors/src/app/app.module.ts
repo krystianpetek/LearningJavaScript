@@ -10,6 +10,7 @@ import { CartComponent } from './cart/cart.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthModule } from './auth/auth.module';
 import { ProductsModule } from './products/products.module';
+import { AppMaterialModule } from './app-material.module';
 
 @NgModule({
   declarations: [AppComponent, CartComponent, PageNotFoundComponent],
@@ -20,8 +21,10 @@ import { ProductsModule } from './products/products.module';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ProductsModule,
+    AppMaterialModule,
     AppRoutingModule,
   ],
+  exports: [AppMaterialModule],
   providers: [],
   bootstrap: [AppComponent],
 })
