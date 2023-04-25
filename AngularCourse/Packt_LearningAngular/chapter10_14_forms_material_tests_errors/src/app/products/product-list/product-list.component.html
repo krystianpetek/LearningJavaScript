@@ -1,4 +1,24 @@
 <div>
+  <h3>Product List Material relative </h3>
+
+  <table mat-table [dataSource]="this.products!">
+    <tr mat-header-row *matHeaderRowDef="this.columnNames"></tr>
+    <tr mat-row *matRowDef="let row; columns: this.columnNames;"></tr>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let product">
+        <a [routerLink]="['/products',product.id]">{{this.product.name}}</a>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef>Price</th>
+      <td mat-cell *matCellDef="let product">{{ this.product.price | currency }}</td>
+    </ng-container>
+
+  </table>
+
   <h3>Product List relative</h3>
   <ul>
     <!-- <li *ngFor="let product of (products$ | async)! | sort ; let i = index" (click)="selectedProduct = product"> -->
@@ -6,6 +26,7 @@
       <a [routerLink]="['./',product.id]">{{product.name}}</a>
     </li>
   </ul>
+
   <h3>Product List redirect</h3>
   <ul>
     <li *ngFor="let product of this.products! | sort ; let i = index" (click)="selectedProduct = product">

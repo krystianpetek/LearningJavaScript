@@ -13,9 +13,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
 
 import { MaterialControlsComponent } from './material-controls/material-controls.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [MaterialControlsComponent],
@@ -35,6 +37,8 @@ import { BrowserModule } from '@angular/platform-browser';
     MatListModule,
     MatGridListModule,
     MatDialogModule,
+    MatTableModule,
+    MatSortModule,
   ],
   exports: [
     MatButtonModule,
@@ -51,6 +55,8 @@ import { BrowserModule } from '@angular/platform-browser';
     MatListModule,
     MatGridListModule,
     MatDialogModule,
+    MatTableModule,
+    MatSortModule,
   ],
 })
 export class AppMaterialModule {}

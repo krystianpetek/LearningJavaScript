@@ -12,6 +12,7 @@ export class ProductListComponent implements OnInit {
   public products?: Product[] = [];
   // public products$?: Observable<Product[]>;
 
+  public columnNames = ['name', 'price'];
   public selectedProduct: Product | undefined;
 
   public constructor(productService: ProductsService) {
