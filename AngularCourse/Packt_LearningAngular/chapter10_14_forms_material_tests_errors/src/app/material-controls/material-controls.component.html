@@ -38,3 +38,9 @@
   <mat-list-option color="primary" *ngFor="let item of this.items">{{item.name}} {{item.surname}}
     {{item.age}}</mat-list-option>
 </mat-selection-list>
+
+<p>Mat-grid-list</p>
+<mat-grid-list [cols]='3' rowHeight="100px" gutterSize="50">
+  <mat-grid-tile *ngFor="let item of this.items">{{item.name}} {{item.surname}}
+    {{item.age}}</mat-grid-tile>
+</mat-grid-list>
