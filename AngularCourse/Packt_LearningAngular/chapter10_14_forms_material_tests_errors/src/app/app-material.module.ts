@@ -12,6 +12,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { MaterialControlsComponent } from './material-controls/material-controls.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -33,6 +34,7 @@ import { BrowserModule } from '@angular/platform-browser';
     MatToolbarModule,
     MatListModule,
     MatGridListModule,
+    MatDialogModule,
   ],
   exports: [
     MatButtonModule,
@@ -48,6 +50,7 @@ import { BrowserModule } from '@angular/platform-browser';
     MatToolbarModule,
     MatListModule,
     MatGridListModule,
+    MatDialogModule,
   ],
 })
 export class AppMaterialModule {}

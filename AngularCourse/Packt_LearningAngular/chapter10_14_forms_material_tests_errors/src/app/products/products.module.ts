@@ -7,6 +7,7 @@ import { ProductCreateComponent } from './product-create/product-create.componen
 import { ProductsRoutingModule } from './products-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppMaterialModule } from '../app-material.module';
+import { PriceComponent } from './price/price.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { AppMaterialModule } from '../app-material.module';
     SortPipe,
     ProductDetailComponent,
     ProductCreateComponent,
+    PriceComponent,
   ],
   imports: [
     CommonModule,

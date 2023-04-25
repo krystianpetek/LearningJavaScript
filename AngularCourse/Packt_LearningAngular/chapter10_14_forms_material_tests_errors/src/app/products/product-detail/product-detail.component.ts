@@ -10,11 +10,13 @@ import {
   OnInit,
 } from '@angular/core';
 import { Product } from '../models/product';
-import { Observable, of, switchMap } from 'rxjs';
+import { Observable, filter, of, switchMap } from 'rxjs';
 import { ProductsService } from '../products.service';
 import { AuthService } from 'src/app/auth/auth.service';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from 'src/app/cart/cart.service';
+import { MatDialog } from '@angular/material/dialog';
+import { PriceComponent } from '../price/price.component';
 
 @Component({
   selector: 'app-product-detail',
@@ -28,6 +30,7 @@ export class ProductDetailComponent implements OnChanges, OnInit {
   private _route: ActivatedRoute;
   private _authService: AuthService;
   private _cartService: CartService;
+  private _dialog: MatDialog;
 
   @Input() public product?: Product;
   @Output() public deleted = new EventEmitter<void>();
@@ -39,12 +42,14 @@ export class ProductDetailComponent implements OnChanges, OnInit {
     productsService: ProductsService,
     authService: AuthService,
     cartService: CartService,
-    route: ActivatedRoute
+    route: ActivatedRoute,
+    dialog: MatDialog
   ) {
     this._productService = productsService;
     this._authService = authService;
     this._cartService = cartService;
     this._route = route;
+    this._dialog = dialog;
   }
 
   public ngOnInit(): void {
@@ -79,9 +84,18 @@ export class ProductDetailComponent implements OnChanges, OnInit {
   }
 
   public changePrice(product: Product, price: number): void {
-    this._productService.updateProduct(product.id, price).subscribe(() => {
-      alert(`The price of ${product.name} was changed!`);
-    });
+    this._dialog
+      .open(PriceComponent)
+      .afterClosed()
+      .pipe(
+        filter((price: number) => !!price),
+        switchMap((price: number) =>
+          this._productService.updateProduct(product.id, price)
+        )
+      )
+      .subscribe(() => {
+        alert(`The price of ${product.name} was changed!`);
+      });
   }
 
   public removeProduct(product: Product) {

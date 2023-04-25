@@ -5,14 +5,16 @@
 
   <div>
     <input placeholder="New price" #price />
-    <button (click)="this.changePrice(this.product, price.valueAsNumber)">Change using onClick</button>
+    <button mat-raised-button (click)="this.changePrice(this.product, this.price.valueAsNumber)">Change using
+      onClick</button>
   </div>
+
   <form (ngSubmit)="changePrice(product, priceValue!)">
     <input placeholder="New price" name="price" [(ngModel)]="priceValue" />
-    <button type="submit">Change by ngModel</button>
+    <button mat-raised-button type="submit">Change by ngModel</button>
   </form>
   <p>
-    <button *ngIf="this.isLoggedUser" (click)="buy(this.product)">Buy Now</button>
-    <button class="delete" (click)="removeProduct(this.product)">Delete</button>
+    <button mat-raised-button *ngIf="this.isLoggedUser" (click)="buy(this.product)">Buy Now</button>
+    <button mat-raised-button class="delete" (click)="removeProduct(this.product)">Delete</button>
   </p>
 </div>
