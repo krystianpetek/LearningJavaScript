@@ -1,7 +1,7 @@
 <h1 mat-dialog-title>Change product price</h1>
 <mat-dialog-content>
   <mat-form-field>
-    <input matInput [(ngModel)]="this.price" />
+    <input matInput [(ngModel)]="this.price" [placeholder]="data.toString()" />
   </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions>

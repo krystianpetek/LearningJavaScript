@@ -85,7 +85,9 @@ export class ProductDetailComponent implements OnChanges, OnInit {
 
   public changePrice(product: Product, price: number): void {
     this._dialog
-      .open(PriceComponent)
+      .open(PriceComponent, {
+        data: product.price,
+      })
       .afterClosed()
       .pipe(
         filter((price: number) => !!price),
