@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Product } from '../products/models/product';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-material-controls',
@@ -23,4 +25,8 @@ export class MaterialControlsComponent {
       age: 22,
     },
   ];
+
+  public reorder(event: CdkDragDrop<Product[]>) {
+    moveItemInArray(this.items, event.previousIndex, event.currentIndex);
+  }
 }

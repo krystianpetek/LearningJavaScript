@@ -16,6 +16,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 
 import { ClipboardModule } from '@angular/cdk/clipboard';
+import { DragDrop, DragDropModule } from '@angular/cdk/drag-drop';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { MatSortModule } from '@angular/material/sort';
@@ -43,6 +44,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatSortModule,
     MatPaginatorModule,
     ClipboardModule,
+    DragDropModule,
   ],
   exports: [
     MatButtonModule,
@@ -63,6 +65,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatSortModule,
     MatPaginatorModule,
     ClipboardModule,
+    DragDropModule,
   ],
 })
 export class AppMaterialModule {}
