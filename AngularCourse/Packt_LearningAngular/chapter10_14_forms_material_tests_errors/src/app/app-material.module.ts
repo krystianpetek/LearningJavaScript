@@ -15,13 +15,14 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 
-import { MaterialControlsComponent } from './material-controls/material-controls.component';
+import { ClipboardModule } from '@angular/cdk/clipboard';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
-  declarations: [MaterialControlsComponent],
+  declarations: [],
   imports: [
     BrowserModule,
     MatButtonModule,
@@ -41,6 +42,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
+    ClipboardModule,
   ],
   exports: [
     MatButtonModule,
@@ -60,6 +62,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
+    ClipboardModule,
   ],
 })
 export class AppMaterialModule {}
