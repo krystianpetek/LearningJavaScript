@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MapComponent } from './map.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 describe('MapComponent', () => {
   let component: MapComponent;
@@ -8,9 +9,9 @@ describe('MapComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MapComponent ]
-    })
-    .compileComponents();
+      declarations: [MapComponent],
+      imports: [GoogleMapsModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(MapComponent);
     component = fixture.componentInstance;
