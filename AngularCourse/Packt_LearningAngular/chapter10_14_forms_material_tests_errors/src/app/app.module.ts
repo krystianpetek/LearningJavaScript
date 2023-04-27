@@ -16,6 +16,7 @@ import { AppMaterialModule } from './app-material.module';
 
 import { MaterialControlsComponent } from './material-controls/material-controls.component';
 import { CopyTextComponent } from './copy-text/copy-text.component';
+import { StubComponent } from './stub/stub/stub.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { CopyTextComponent } from './copy-text/copy-text.component';
     MapComponent,
     MaterialControlsComponent,
     CopyTextComponent,
+    StubComponent,
   ],
   imports: [
     AuthModule,
