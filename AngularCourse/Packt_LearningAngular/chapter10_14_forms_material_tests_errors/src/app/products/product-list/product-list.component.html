@@ -1,7 +1,7 @@
 <div>
   <h3>Product List Material relative </h3>
 
-  <table mat-table [dataSource]="this.products!">
+  <table mat-table [dataSource]="this.products!" matSort matSortDisableClear>
     <tr mat-header-row *matHeaderRowDef="this.columnNames"></tr>
     <tr mat-row *matRowDef="let row; columns: this.columnNames;"></tr>
 
@@ -18,18 +18,19 @@
     </ng-container>
 
   </table>
+  <mat-paginator [pageSize]="5" [pageSizeOptions]="[5,10,15]"></mat-paginator>
 
   <h3>Product List relative</h3>
   <ul>
     <!-- <li *ngFor="let product of (products$ | async)! | sort ; let i = index" (click)="selectedProduct = product"> -->
-    <li *ngFor="let product of this.products! | sort ; let i = index" (click)="selectedProduct = product">
+    <li *ngFor="let product of this.products?.filteredData; let i = index" (click)="selectedProduct = product">
       <a [routerLink]="['./',product.id]">{{product.name}}</a>
     </li>
   </ul>
 
   <h3>Product List redirect</h3>
   <ul>
-    <li *ngFor="let product of this.products! | sort ; let i = index" (click)="selectedProduct = product">
+    <li *ngFor="let product of this.products?.filteredData; let i = index" (click)="selectedProduct = product">
       <a [routerLink]="['/products-redirect',product.id]">{{product.name}}</a>
     </li>
   </ul>
