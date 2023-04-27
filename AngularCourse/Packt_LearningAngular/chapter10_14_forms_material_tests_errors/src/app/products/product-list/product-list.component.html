@@ -23,14 +23,14 @@
   <h3>Product List relative</h3>
   <ul>
     <!-- <li *ngFor="let product of (products$ | async)! | sort ; let i = index" (click)="selectedProduct = product"> -->
-    <li *ngFor="let product of this.products?.filteredData; let i = index" (click)="selectedProduct = product">
+    <li *ngFor="let product of this.products?.data; let i = index" (click)="selectedProduct = product">
       <a [routerLink]="['./',product.id]">{{product.name}}</a>
     </li>
   </ul>
 
   <h3>Product List redirect</h3>
   <ul>
-    <li *ngFor="let product of this.products?.filteredData; let i = index" (click)="selectedProduct = product">
+    <li *ngFor="let product of this.products?.data ; let i = index" (click)="selectedProduct = product">
       <a [routerLink]="['/products-redirect',product.id]">{{product.name}}</a>
     </li>
   </ul>

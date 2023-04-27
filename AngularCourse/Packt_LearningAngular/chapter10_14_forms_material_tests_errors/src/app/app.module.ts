@@ -11,9 +11,16 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AuthModule } from './auth/auth.module';
 import { ProductsModule } from './products/products.module';
 import { AppMaterialModule } from './app-material.module';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
-  declarations: [AppComponent, CartComponent, PageNotFoundComponent],
+  declarations: [
+    AppComponent,
+    CartComponent,
+    PageNotFoundComponent,
+    MapComponent,
+  ],
   imports: [
     AuthModule,
     BrowserModule,
@@ -23,6 +30,7 @@ import { AppMaterialModule } from './app-material.module';
     ProductsModule,
     AppMaterialModule,
     AppRoutingModule,
+    GoogleMapsModule,
   ],
   exports: [AppMaterialModule],
   providers: [],
