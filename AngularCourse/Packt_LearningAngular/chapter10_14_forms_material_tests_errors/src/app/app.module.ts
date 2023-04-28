@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -24,6 +24,7 @@ import { TestHostComponent } from './tests/test-host/test-host.component';
 import { ListPipe } from './tests/list.pipe';
 import { CopyrightDirective } from './tests/copyright.directive';
 import { SearchComponent } from './tests/search/search.component';
+import { AppErrorHandler } from './app-error-handler';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,12 @@ import { SearchComponent } from './tests/search/search.component';
     GoogleMapsModule,
   ],
   exports: [AppMaterialModule],
-  providers: [],
+  providers: [
+    {
+      provide: ErrorHandler,
+      useClass: AppErrorHandler,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
