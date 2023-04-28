@@ -21,7 +21,8 @@ import { SpyComponent } from './tests/spy/spy.component';
 import { AsyncTestComponent } from './tests/async-test/async-test.component';
 import { BindingsComponent } from './tests/bindings/bindings.component';
 import { TestHostComponent } from './tests/test-host/test-host.component';
-import { ListPipe } from './list.pipe';
+import { ListPipe } from './tests/list.pipe';
+import { CopyrightDirective } from './tests/copyright.directive';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ListPipe } from './list.pipe';
     BindingsComponent,
     TestHostComponent,
     ListPipe,
+    CopyrightDirective,
   ],
   imports: [
     AuthModule,

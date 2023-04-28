@@ -5,6 +5,7 @@ import { BindingsComponent } from '../bindings/bindings.component';
 import { By } from '@angular/platform-browser';
 import { MatButtonHarness } from '@angular/material/button/testing';
 import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';
+import { CopyrightDirective } from '../copyright.directive';
 
 describe('TestHostComponent', () => {
   let component: TestHostComponent;
@@ -43,5 +44,27 @@ describe('TestHostComponent', () => {
     const buttonHarness = await loader.getHarness(MatButtonHarness);
     await buttonHarness.click();
     expect(component.isFavorite).toBeTrue();
+  });
+
+  describe('CopyrightDirectiveTest', () => {
+    let container: HTMLElement;
+
+    beforeEach(() => {
+      const fixture: ComponentFixture<TestHostComponent> =
+        TestBed.configureTestingModule({
+          declarations: [CopyrightDirective, TestHostComponent],
+        }).createComponent(TestHostComponent);
+      container = fixture.nativeElement.querySelector('span');
+    });
+
+    it('should have copyright class', () => {
+      expect(container.classList).toContain('copyright');
+    });
+
+    it('should display copyright details', () => {
+      expect(container.textContent).toContain(
+        new Date().getFullYear().toString()
+      );
+    });
   });
 });
