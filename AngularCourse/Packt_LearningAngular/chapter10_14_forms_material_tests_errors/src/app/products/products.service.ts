@@ -1,7 +1,7 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Product } from './models/product';
-import { Observable, map, of } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { Observable, catchError, map, of, throwError } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { ProductDto, convertToProduct } from './models/product-dto';
 
 @Injectable({
@@ -22,7 +22,11 @@ export class ProductsService {
         products.map((product: ProductDto): Product => {
           return convertToProduct(product);
         })
-      )
+      ),
+      catchError((error: HttpErrorResponse) => {
+        console.error(error);
+        return throwError(() => error);
+      })
     );
   }
 
