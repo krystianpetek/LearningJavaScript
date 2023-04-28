@@ -11,4 +11,9 @@ export class AsyncTestService {
   public getData(): Observable<string[]> {
     return of(this.heroes).pipe(delay(500));
   }
+
+  public setData(hero: string) {
+    this.heroes.push(hero);
+    return this.heroes;
+  }
 }

@@ -18,7 +18,7 @@ import { MaterialControlsComponent } from './material-controls/material-controls
 import { CopyTextComponent } from './copy-text/copy-text.component';
 import { StubComponent } from './tests/stub/stub/stub.component';
 import { SpyComponent } from './tests/spy/spy.component';
-import { AsyncTestComponent } from './async-test/async-test.component';
+import { AsyncTestComponent } from './tests/async-test/async-test.component';
 import { BindingsComponent } from './tests/bindings/bindings.component';
 import { TestHostComponent } from './tests/test-host/test-host.component';
 

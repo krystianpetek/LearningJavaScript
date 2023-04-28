@@ -10,7 +10,8 @@ describe('AsyncTestService', () => {
     service = TestBed.inject(AsyncTestService);
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
+  it('should set data', () => {
+    const result = service.setData('Fake hero');
+    expect(result.length).toBe(6);
   });
 });
