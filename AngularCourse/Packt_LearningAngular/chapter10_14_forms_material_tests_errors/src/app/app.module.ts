@@ -23,6 +23,7 @@ import { BindingsComponent } from './tests/bindings/bindings.component';
 import { TestHostComponent } from './tests/test-host/test-host.component';
 import { ListPipe } from './tests/list.pipe';
 import { CopyrightDirective } from './tests/copyright.directive';
+import { SearchComponent } from './tests/search/search.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { CopyrightDirective } from './tests/copyright.directive';
     TestHostComponent,
     ListPipe,
     CopyrightDirective,
+    SearchComponent,
   ],
   imports: [
     AuthModule,
