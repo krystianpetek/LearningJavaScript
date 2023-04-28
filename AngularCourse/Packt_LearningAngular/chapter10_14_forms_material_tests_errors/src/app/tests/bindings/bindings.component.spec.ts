@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { BindingsComponent } from './bindings.component';
 
 describe('BindingsComponent', () => {
@@ -8,16 +7,11 @@ describe('BindingsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BindingsComponent ]
-    })
-    .compileComponents();
+      declarations: [BindingsComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(BindingsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
   });
 });

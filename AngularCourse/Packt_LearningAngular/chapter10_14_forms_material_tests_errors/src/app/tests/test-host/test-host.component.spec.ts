@@ -3,10 +3,13 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TestHostComponent } from './test-host.component';
 import { BindingsComponent } from '../bindings/bindings.component';
 import { By } from '@angular/platform-browser';
+import { MatButtonHarness } from '@angular/material/button/testing';
+import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';
 
 describe('TestHostComponent', () => {
   let component: TestHostComponent;
   let fixture: ComponentFixture<TestHostComponent>;
+  let loader = TestbedHarnessEnvironment.loader(fixture!);
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -36,5 +39,9 @@ describe('TestHostComponent', () => {
     expect(component.isFavorite).toBeTrue();
   });
 
-  
+  it('should emit the liked event using harness', async () => {
+    const buttonHarness = await loader.getHarness(MatButtonHarness);
+    await buttonHarness.click();
+    expect(component.isFavorite).toBeTrue();
+  });
 });

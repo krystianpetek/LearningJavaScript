@@ -4,7 +4,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   selector: 'app-bindings',
   template: `
     <p>{{ title }}</p>
-    <button (click)="liked.emit()">Like!</button>
+    <button mat-button (click)="liked.emit()">Like!</button>
   `,
 })
 export class BindingsComponent {
