@@ -18,6 +18,7 @@ import { MaterialControlsComponent } from './material-controls/material-controls
 import { CopyTextComponent } from './copy-text/copy-text.component';
 import { StubComponent } from './stub/stub/stub.component';
 import { SpyComponent } from './spy/spy.component';
+import { AsyncTestComponent } from './async-test/async-test.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { SpyComponent } from './spy/spy.component';
     CopyTextComponent,
     StubComponent,
     SpyComponent,
+    AsyncTestComponent,
   ],
   imports: [
     AuthModule,
