@@ -1,7 +1,11 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Product } from './models/product';
-import { Observable, catchError, map, of, throwError } from 'rxjs';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, catchError, map, of, retry, throwError } from 'rxjs';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpStatusCode,
+} from '@angular/common/http';
 import { ProductDto, convertToProduct } from './models/product-dto';
 
 @Injectable({
@@ -23,10 +27,8 @@ export class ProductsService {
           return convertToProduct(product);
         })
       ),
-      catchError((error: HttpErrorResponse) => {
-        console.error(error);
-        return throwError(() => error);
-      })
+      retry(2),
+      catchError(this.handleError)
     );
   }
 
@@ -55,5 +57,23 @@ export class ProductsService {
 
   public deleteProduct(id: number): Observable<void> {
     return this._httpClient.delete<void>(`${this._productsUrl}/${id}`);
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    switch (error.status) {
+      case 0:
+        console.error('Client error:', error.error);
+        break;
+      case HttpStatusCode.InternalServerError:
+        console.error('Server error:', error.error);
+        break;
+      case HttpStatusCode.BadRequest:
+        console.error('Request error:', error.error);
+        break;
+      default:
+        console.error('Unknown error:', error.error);
+        break;
+    }
+    return throwError(() => error);
   }
 }
