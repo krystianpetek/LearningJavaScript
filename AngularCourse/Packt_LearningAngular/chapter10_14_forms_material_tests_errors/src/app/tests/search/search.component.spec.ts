@@ -25,4 +25,23 @@ describe('SearchComponent', () => {
     input.dispatchEvent(new CustomEvent('input'));
     expect(component.searchText.value).toBe('Angular');
   });
+
+  it('should disable search button', () => {
+    const button: HTMLButtonElement =
+      fixture.nativeElement.querySelector('button');
+
+    component.searchText.setValue('');
+    expect(button.disabled).toBeTrue();
+  });
+
+  it('should log to the console', () => {
+    const button: HTMLButtonElement =
+      fixture.nativeElement.querySelector('button');
+    const spy = spyOn(console, 'log');
+
+    component.searchText.setValue('Angular');
+    fixture.detectChanges();
+    button.click();
+    expect(spy).toHaveBeenCalledWith('You searched for: Angular');
+  });
 });
