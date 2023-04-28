@@ -14,4 +14,11 @@ describe('AsyncTestService', () => {
     const result = service.setData('Fake hero');
     expect(result.length).toBe(6);
   });
+
+  it('should get data', (done: DoneFn) => {
+    service.getData().subscribe((hero) => {
+      expect(hero.length).toBe(5);
+      done();
+    });
+  });
 });
